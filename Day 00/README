@@ -1,0 +1,3 @@
+ex00
+std::transform from forbidden <algorithm>:
+	http://www.cplusplus.com/reference/algorithm/transform/

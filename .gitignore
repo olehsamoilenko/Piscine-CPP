@@ -1,0 +1,5 @@
+*.o
+*.vscode
+# Day 00
+Day 00/ex00/megaphone
+Day 00/ex01/PhoneBook
