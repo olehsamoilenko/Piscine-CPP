@@ -40,13 +40,13 @@ void	Book::add(void)
 	{
 		std::cout << "Creating a new contact..." << std::endl;
 		std::string buf;
-		std::cout << "Enter first name: ";
+		std::cout << "\tEnter first name: ";
 		std::cin >> buf;
 		this->_contacts[this->_numberContacts].setFirstName(buf);
-		std::cout << "Enter last name: ";
+		std::cout << "\tEnter last name: ";
 		std::cin >> buf;
 		this->_contacts[this->_numberContacts].setLastName(buf);
-		std::cout << "Enter nickname: ";
+		std::cout << "\tEnter nickname: ";
 		std::cin >> buf;
 		this->_contacts[this->_numberContacts].setNickname(buf);
 

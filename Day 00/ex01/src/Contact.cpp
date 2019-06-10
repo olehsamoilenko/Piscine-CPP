@@ -50,7 +50,6 @@ void	Contact::show(int index)
 	std::cout << "|";
 	_printData(_nickname);
 	std::cout << std::endl;
-	std::cout << this->_nickname << std::endl;
 }
 
 void	Contact::setFirstName(std::string firstName)
