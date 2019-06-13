@@ -1,3 +1,9 @@
 ex00
 std::transform from forbidden <algorithm>:
 	http://www.cplusplus.com/reference/algorithm/transform/
+ex01
+./PhoneBook TODO
+	Ctrl+D
+./PhoneBook TODO
+	SEARCH
+	-

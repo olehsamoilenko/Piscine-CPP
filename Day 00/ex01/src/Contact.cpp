@@ -20,12 +20,12 @@ Contact::Contact(void)
 
 }
 
-Contact::~Contact()
+Contact::~Contact(void)
 {
 
 }
 
-void	Contact::_printData(std::string data)
+void	Contact::_printShortData(std::string data) const
 {
 	if (data.length() > 10)
 	{
@@ -35,21 +35,28 @@ void	Contact::_printData(std::string data)
 	else
 	{
 		std::cout << std::setw(10);
-		std::cout << data;
+		std::cout << data; // one line ?
 	}
 }
 
-void	Contact::show(int index)
+void	Contact::showShort(int index) const
 {
 	std::cout << std::setw(10);
-	std::cout << index;
+	std::cout << index; // one line ?
 	std::cout << "|";
-	_printData(_firstName);
+	_printShortData(_firstName);
 	std::cout << "|";
-	_printData(_lastName);
+	_printShortData(_lastName);
 	std::cout << "|";
-	_printData(_nickname);
+	_printShortData(_nickname);
 	std::cout << std::endl;
+}
+
+void	Contact::showLong(void) const
+{
+	std::cout << _firstName << std::endl;
+	std::cout << _lastName << std::endl;
+	std::cout << _nickname << std::endl;
 }
 
 void	Contact::setFirstName(std::string firstName)

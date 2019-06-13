@@ -22,7 +22,7 @@ class Book
 		Book(void);
 		~Book(void);
 
-		void		search(void);
+		void		search(void)	const;
 		void		add(void);
 
 	private:

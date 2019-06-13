@@ -22,7 +22,7 @@ Book::~Book(void)
 	
 }
 
-void	Book::search(void)
+void	Book::search(void) const
 {
 	if (this->_numberContacts == 0)
 		std::cout << "* Contact book is empty *" << std::endl;
@@ -30,7 +30,19 @@ void	Book::search(void)
 	{
 		int j = -1;
 		while (++j < this->_numberContacts)
-			this->_contacts[j].show(j);
+			this->_contacts[j].showShort(j);
+		int index = -1;
+		std::cout << "Enter an index for more info: ";
+		std::cin >> index;
+		std::cout << "OUTPUT: " << index << std::endl;
+		std::cout << "FAIL: " << std::cin.fail() << std::endl;
+		std::cin.clear();
+		exit(1);
+		if (index >= 0 && index < _numberContacts)
+			_contacts[index].showLong();
+		else
+			std::cout << "* Sorry, contact with index " << index
+				<< " doesn't exist *" << std::endl;
 	}
 }
 
@@ -51,14 +63,8 @@ void	Book::add(void)
 		this->_contacts[this->_numberContacts].setNickname(buf);
 
 		this->_numberContacts++;
-		std::cout << "Contact successfully created!" << std::endl;
+		std::cout << "* Contact successfully created! *" << std::endl;
 	}
 	else
 		std::cout << "* Contact book is full *" << std::endl;
 }
-
-/* ??????????????
-Then the program will prompt again for the index of the desired entry and
-displays the contact’s information, one field per line. If the input makes no
-sense, define a relevant behavior.
-??????????????? */

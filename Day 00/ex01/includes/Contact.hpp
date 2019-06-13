@@ -21,7 +21,8 @@ class Contact
 		Contact(void);
 		~Contact(void);
 
-		void	show(int index);
+		void	showShort(int index) const;
+		void	showLong(void) const;
 		void	setFirstName(std::string firstName);
 		void	setLastName(std::string lastName);
 		void	setNickname(std::string nickname);
@@ -39,8 +40,7 @@ class Contact
 		// std::string		_underwearColor;
 		// std::string		_darkestSecret;
 
-		void		_printData(std::string data);
-		
+		void		_printShortData(std::string data) const;
 };
 
 #endif
