@@ -10,12 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = account
+NAME = pony
 CC = clang++
 CFLAGS = #-Wall -Werror -Wextra
-CPP =	Account.class \
-		tests
-HPP =	Account.class.hpp
+CPP =	Pony \
+		main
+HPP =	Pony.hpp
 
 OBJ = $(addsuffix .o, $(CPP))
 

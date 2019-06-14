@@ -10,18 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = account
+NAME = leak
 CC = clang++
 CFLAGS = #-Wall -Werror -Wextra
-CPP =	Account.class \
-		tests
-HPP =	Account.class.hpp
+CPP =	ex01
 
 OBJ = $(addsuffix .o, $(CPP))
 
 all: $(NAME)
 
-%.o: %.cpp $(HPP)
+%.o: %.cpp
 	$(CC) -c $< -o $@ $(INC) $(CFLAGS)
 
 $(NAME): $(OBJ)

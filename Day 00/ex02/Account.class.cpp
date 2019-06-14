@@ -103,6 +103,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 
 int		Account::checkAmount(void) const
 {
+	count++;
 	return (0);
 }
 

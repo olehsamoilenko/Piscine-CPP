@@ -10,12 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = account
+NAME = zombie
 CC = clang++
 CFLAGS = #-Wall -Werror -Wextra
-CPP =	Account.class \
-		tests
-HPP =	Account.class.hpp
+CPP =	Zombie \
+		main
+HPP =	Zombie.hpp
 
 OBJ = $(addsuffix .o, $(CPP))
 
