@@ -101,11 +101,11 @@ bool	Account::makeWithdrawal(int withdrawal)
 	}
 }
 
-int		Account::checkAmount(void) const
-{
-	count++;
-	return (0);
-}
+// int		Account::checkAmount(void) const
+// {
+// 	// count++;
+// 	return (0);
+// }
 
 void	Account::displayStatus(void) const
 {

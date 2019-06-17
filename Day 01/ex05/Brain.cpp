@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Brain.hpp"
 
-Zombie::Zombie(std::string name, std::string type)
+#include <sstream>
+
+Brain::Brain(void)
 {
-	_name = name;
-	_type = type;
-	std::cout << _name << " created." << std::endl;
+	std::cout << "Brain constructed." << std::endl;
 }
 
-Zombie::~Zombie(void)
+Brain::~Brain(void)
 {
-	std::cout << _name << " dead." << std::endl;
+	std::cout << "Brain destructed." << std::endl;
 }
 
-void	Zombie::announce(void)
+std::string	Brain::identify(void) const
 {
-	std::cout << "<" << _name << " (" << _type << ")"
-		<< "> Braiiiiiiinnnssss..." << std::endl;
+	std::stringstream s;
+	s << this;
+	return (s.str());
 }

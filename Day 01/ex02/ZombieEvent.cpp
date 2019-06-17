@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   ZombieEvent.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,42 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "ZombieEvent.hpp"
 
-Zombie::Zombie(std::string name, std::string type)
+#define ARRAY_LEN(arr) (sizeof(arr) / sizeof(*arr))
+
+std::string names[] = {
+	"Artem",
+	"Borys",
+	"Carl",
+	"Denis",
+	"Elran",
+	"Frank",
+	"Georgy",
+	"Hleb",
+	"Ilya",
+	"Jack"
+};
+
+ZombieEvent::ZombieEvent(void)
 {
-	_name = name;
+	_type = "default";
+	srand(time(NULL));
+}
+
+void	ZombieEvent::setZombieType(std::string type)
+{
 	_type = type;
-	std::cout << _name << " created." << std::endl;
 }
 
-Zombie::~Zombie(void)
+Zombie	*ZombieEvent::newZombie(std::string name)
 {
-	std::cout << _name << " dead." << std::endl;
+	return (new Zombie(name, _type));
 }
 
-void	Zombie::announce(void)
+Zombie	*ZombieEvent::randomChump()
 {
-	std::cout << "<" << _name << " (" << _type << ")"
-		<< "> Braiiiiiiinnnssss..." << std::endl;
+	Zombie *z = newZombie(names[rand() % ARRAY_LEN(names)]);
+	z->announce();
+	return (z);
 }

@@ -10,22 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Human.hpp"
 
-Zombie::Zombie(std::string name, std::string type)
+int main()
 {
-	_name = name;
-	_type = type;
-	std::cout << _name << " created." << std::endl;
-}
-
-Zombie::~Zombie(void)
-{
-	std::cout << _name << " dead." << std::endl;
-}
-
-void	Zombie::announce(void)
-{
-	std::cout << "<" << _name << " (" << _type << ")"
-		<< "> Braiiiiiiinnnssss..." << std::endl;
+	Human bob;
+	std::cout << bob.identify() << std::endl;
+	std::cout << bob.getBrain().identify() << std::endl;
 }

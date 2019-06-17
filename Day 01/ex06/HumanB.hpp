@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-Zombie::Zombie(std::string name, std::string type)
-{
-	_name = name;
-	_type = type;
-	std::cout << _name << " created." << std::endl;
-}
+#include "Weapon.hpp"
 
-Zombie::~Zombie(void)
+class HumanB
 {
-	std::cout << _name << " dead." << std::endl;
-}
+	public:
+		HumanB(std::string name);
 
-void	Zombie::announce(void)
-{
-	std::cout << "<" << _name << " (" << _type << ")"
-		<< "> Braiiiiiiinnnssss..." << std::endl;
-}
+		void	attack(void);
+		void	setWeapon(Weapon & weapon);
+
+	private:
+		Weapon *	_weapon;
+		std::string	_name;
+
+};
+
+#endif

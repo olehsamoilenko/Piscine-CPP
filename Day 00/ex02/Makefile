@@ -12,7 +12,7 @@
 
 NAME = account
 CC = clang++
-CFLAGS = #-Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 CPP =	Account.class \
 		tests
 HPP =	Account.class.hpp

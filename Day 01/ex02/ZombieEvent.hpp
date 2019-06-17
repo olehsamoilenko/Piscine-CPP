@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ZOMBIEEVENT_HPP
+# define ZOMBIEEVENT_HPP
+
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name, std::string type)
+class ZombieEvent
 {
-	_name = name;
-	_type = type;
-	std::cout << _name << " created." << std::endl;
-}
+	public:
+		ZombieEvent(void);
 
-Zombie::~Zombie(void)
-{
-	std::cout << _name << " dead." << std::endl;
-}
+		void		setZombieType(std::string type);
+		Zombie		*newZombie(std::string name);
+		Zombie		*randomChump(void);
 
-void	Zombie::announce(void)
-{
-	std::cout << "<" << _name << " (" << _type << ")"
-		<< "> Braiiiiiiinnnssss..." << std::endl;
-}
+	private:
+		std::string	_type;
+};
+
+#endif

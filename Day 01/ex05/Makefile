@@ -10,14 +10,14 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = brain
 CC = clang++
 CFLAGS = #-Wall -Werror -Wextra
-CPP =	Zombie \
-		ZombieEvent \
+CPP =	Brain \
+		Human \
 		main
-HPP =	Zombie.hpp \
-		ZombieEvent.hpp
+HPP =	Brain.hpp \
+		Human.hpp
 
 OBJ = $(addsuffix .o, $(CPP))
 

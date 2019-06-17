@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Human.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Human.hpp"
 
-Zombie::Zombie(std::string name, std::string type)
+Human::Human(void)
 {
-	_name = name;
-	_type = type;
-	std::cout << _name << " created." << std::endl;
+	// _brain = new Brain();
 }
 
-Zombie::~Zombie(void)
+const Brain&	Human::getBrain(void)
 {
-	std::cout << _name << " dead." << std::endl;
+	return (_brain);
 }
 
-void	Zombie::announce(void)
+std::string		Human::identify(void)
 {
-	std::cout << "<" << _name << " (" << _type << ")"
-		<< "> Braiiiiiiinnnssss..." << std::endl;
+	return (_brain.identify());
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-Zombie::Zombie(std::string name, std::string type)
-{
-	_name = name;
-	_type = type;
-	std::cout << _name << " created." << std::endl;
-}
+# include <iostream>
 
-Zombie::~Zombie(void)
+class Brain
 {
-	std::cout << _name << " dead." << std::endl;
-}
+	public:
+		Brain(void);
+		~Brain(void);
+		std::string	identify(void) const;
+};
 
-void	Zombie::announce(void)
-{
-	std::cout << "<" << _name << " (" << _type << ")"
-		<< "> Braiiiiiiinnnssss..." << std::endl;
-}
+#endif

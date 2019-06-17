@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-Zombie::Zombie(std::string name, std::string type)
+Weapon::Weapon(void)
 {
-	_name = name;
+
+}
+
+Weapon::Weapon(std::string type)
+{
 	_type = type;
-	std::cout << _name << " created." << std::endl;
 }
 
-Zombie::~Zombie(void)
+const std::string & Weapon::getType(void)
 {
-	std::cout << _name << " dead." << std::endl;
+	return (_type);
 }
 
-void	Zombie::announce(void)
+void Weapon::setType(std::string type)
 {
-	std::cout << "<" << _name << " (" << _type << ")"
-		<< "> Braiiiiiiinnnssss..." << std::endl;
+	_type = type;
 }

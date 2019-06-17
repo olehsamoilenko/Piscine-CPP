@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 
-Zombie::Zombie(std::string name, std::string type)
+HumanB::HumanB(std::string name)
 {
 	_name = name;
-	_type = type;
-	std::cout << _name << " created." << std::endl;
 }
 
-Zombie::~Zombie(void)
+void	HumanB::attack(void)
 {
-	std::cout << _name << " dead." << std::endl;
+	std::cout << _name << " attacks with his " << _weapon->getType() << std::endl;
 }
 
-void	Zombie::announce(void)
+void	HumanB::setWeapon(Weapon & weapon)
 {
-	std::cout << "<" << _name << " (" << _type << ")"
-		<< "> Braiiiiiiinnnssss..." << std::endl;
+	_weapon = &weapon;
 }

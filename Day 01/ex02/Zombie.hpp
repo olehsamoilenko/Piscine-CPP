@@ -18,13 +18,15 @@
 class Zombie
 {
 	public:
-		Zombie(void);
+		Zombie(std::string name, std::string type);
 		~Zombie(void);
 
-		std::string		type;
-		std::string		name;
 
 		void	announce(void);
+	
+	private:
+		std::string		_type;
+		std::string		_name;
 };
 
 #endif

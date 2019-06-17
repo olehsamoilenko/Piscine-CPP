@@ -10,16 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = weapon
 CC = clang++
 CFLAGS = #-Wall -Werror -Wextra
-CPP =	Zombie \
-		ZombieEvent \
+LIST =	Weapon \
+		HumanA \
+		HumanB
+CPP =	$(LIST) \
 		main
-HPP =	Zombie.hpp \
-		ZombieEvent.hpp
-
-OBJ = $(addsuffix .o, $(CPP))
+HPP =	$(addsuffix .hpp, $(LIST))
+OBJ =	$(addsuffix .o, $(CPP))
 
 all: $(NAME)
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
-Zombie::Zombie(std::string name, std::string type)
-{
-	_name = name;
-	_type = type;
-	std::cout << _name << " created." << std::endl;
-}
+#include "Weapon.hpp"
 
-Zombie::~Zombie(void)
+class HumanA
 {
-	std::cout << _name << " dead." << std::endl;
-}
+	public:
+		HumanA(std::string name, Weapon & weapon);
 
-void	Zombie::announce(void)
-{
-	std::cout << "<" << _name << " (" << _type << ")"
-		<< "> Braiiiiiiinnnssss..." << std::endl;
-}
+		void	attack(void);
+
+	private:
+		Weapon &	_weapon;
+		std::string	_name;
+
+};
+
+#endif
