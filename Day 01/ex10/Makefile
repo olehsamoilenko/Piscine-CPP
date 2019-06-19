@@ -10,20 +10,17 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = weapon
+NAME = cat
 CC = clang++
 CFLAGS = #-Wall -Werror -Wextra
-LIST =	Weapon \
-		HumanA \
-		HumanB
-CPP =	$(LIST) \
-		main
-HPP =	$(addsuffix .hpp, $(LIST))
+# LIST =	Logger
+CPP =	main
+# HPP =	$(addsuffix .hpp, $(LIST))
 OBJ =	$(addsuffix .o, $(CPP))
 
 all: $(NAME)
 
-%.o: %.cpp $(HPP)
+%.o: %.cpp #$(HPP)
 	$(CC) -c $< -o $@ $(CFLAGS)
 
 $(NAME): $(OBJ)

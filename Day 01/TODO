@@ -10,3 +10,17 @@ ex01
 
 ex06
 	ponyat'
+	check makefiles! $(INC)
+
+ex07
+	OK ./replace file \n HELLO
+	OK ./replace fileNotExist in HELLO
+	OK ./replace noRootsFile in HELLO
+
+ex08
+	OK std::find - <algorithm> forbidden
+	
+ex10
+	only started
+
+

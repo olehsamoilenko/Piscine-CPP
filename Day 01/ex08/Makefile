@@ -10,12 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = weapon
+NAME = human
 CC = clang++
 CFLAGS = #-Wall -Werror -Wextra
-LIST =	Weapon \
-		HumanA \
-		HumanB
+LIST =	Human
 CPP =	$(LIST) \
 		main
 HPP =	$(addsuffix .hpp, $(LIST))
