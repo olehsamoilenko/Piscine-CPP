@@ -7,10 +7,11 @@ ex01
 	call destructor ?
 	clear ?
 	assign ?
+	delete ?
 
 ex06
 	ponyat'
-	check makefiles! $(INC)
+	check makefiles! $(INC) $(HPP)
 
 ex07
 	OK ./replace file \n HELLO
