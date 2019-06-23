@@ -9,10 +9,10 @@ ex01
 	Ctrl+D
 ./PhoneBook TODO
 	SEARCH
-	-
+	- cin.good
 ./PhoneBook TODO
 	SEARCH
-	2ADD
+	2ADD cin.ignore cin.peek
 TODO: cin in constructor
 TODO: number of objects - static variable
 remove folders
