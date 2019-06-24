@@ -19,9 +19,6 @@
 class Book
 {
 	public:
-		Book(void);
-		~Book(void);
-
 		void		search(void)	const;
 		void		add(void);
 

@@ -12,32 +12,24 @@
 
 NAME = PhoneBook
 CC = clang++
-CFLAGS = #-Wall -Werror -Wextra
-CPP =	main \
-		Book \
+CFLAGS = -Wall -Werror -Wextra
+LIST =	Book \
 		Contact
-
-HPP =	Book \
-		Contact
-
-INC = -I includes
-
-HEADER = $(addsuffix .hpp, $(addprefix includes/, $(HPP)))
-OBJ = $(addsuffix .o, $(addprefix obj/, $(CPP)))
+CPP =	$(LIST) \
+		main
+HPP =	$(addsuffix .hpp, $(LIST))
+OBJ =	$(addsuffix .o, $(CPP))
 
 all: $(NAME)
 
-obj/%.o: src/%.cpp $(HEADER)
-	$(CC) -c $< -o $@ $(INC) $(CFLAGS)
+%.o: %.cpp $(HPP)
+	$(CC) -c $< -o $@ $(CFLAGS)
 
-$(NAME): obj $(OBJ)
+$(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-obj:
-	mkdir obj
-
 clean:
-	rm -rf obj
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)

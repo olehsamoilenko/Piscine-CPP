@@ -1,21 +1,11 @@
 *** Day 00 ***
 
 ex00
-std::transform from forbidden <algorithm>:
-	http://www.cplusplus.com/reference/algorithm/transform/
+OK		std::transform from forbidden <algorithm>:
 
 ex01
-./PhoneBook TODO
-	Ctrl+D
-./PhoneBook TODO
-	SEARCH
-	- cin.good
-./PhoneBook TODO
-	SEARCH
-	2ADD cin.ignore cin.peek
-TODO: cin in constructor
-TODO: number of objects - static variable
-remove folders
+OK		Ctrl+D (in main, add, search)
+OK		SEARCH => - (cin.good cin.fail)
+OK		SEARCH => 2ADD (cin.ignore cin.peek)
+OK		ADD => "Oleh Samoilenko"
 
-ex02
-member function ?

@@ -13,41 +13,16 @@
 #include "Book.hpp"
 #include <iostream>
 
-// bool	readString(std::string *str)
-// {
-// 	std::cin >> *str;
-// 	if (std::cin.fail())
-// 	{
-// 		if (std::cin.eof())
-// 			exit(0);
-// 		std::cin.clear();
-// 		return (false);
-// 	}
-// 	return (true);
-// }
-
-// bool	readInt(int *i)
-// {
-// 	std::cin >> *i;
-// 	if (std::cin.fail())
-// 	{
-// 		if (std::cin.eof())
-// 			exit(0);
-// 		std::cin.clear();
-// 		return (false);
-// 	}
-// 	return (true);
-// }
-
-int		main(int argc, char **argv)
+int		main(void)
 {
 	Book book;
 	std::string input;
 
 	while (!std::cin.eof())
 	{
-		std::cout << "Enter a command: SEARCH | ADD | EXIT" << std::endl;
-		std::cin >> input;
+		std::cout << "Enter a command (SEARCH, ADD, EXIT): ";
+		std::getline(std::cin, input);
+		
 		if (input == "SEARCH")
 			book.search();
 		else if (input == "ADD")
@@ -57,4 +32,6 @@ int		main(int argc, char **argv)
 		else
 			std::cout << "* Unknown command *" << std::endl;
 	}
+	std::cout << std::endl << "Bye-bye." << std::endl;
+	return (-1);
 }

@@ -13,16 +13,16 @@
 NAME = account
 CC = clang++
 CFLAGS = -Wall -Werror -Wextra
-CPP =	Account.class \
+LIST =	Account.class
+CPP =	$(LIST) \
 		tests
-HPP =	Account.class.hpp
-
+HPP =	$(addsuffix .hpp, $(LIST))
 OBJ = $(addsuffix .o, $(CPP))
 
 all: $(NAME)
 
 %.o: %.cpp $(HPP)
-	$(CC) -c $< -o $@ $(INC) $(CFLAGS)
+	$(CC) -c $< -o $@ $(CFLAGS)
 
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)

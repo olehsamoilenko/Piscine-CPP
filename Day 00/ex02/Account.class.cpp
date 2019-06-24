@@ -12,7 +12,6 @@
 
 #include "Account.class.hpp"
 #include <iostream>
-#include <ctime>
 
 int		Account::_nbAccounts = 0;
 int		Account::_totalAmount = 0;
@@ -101,12 +100,6 @@ bool	Account::makeWithdrawal(int withdrawal)
 	}
 }
 
-// int		Account::checkAmount(void) const
-// {
-// 	// count++;
-// 	return (0);
-// }
-
 void	Account::displayStatus(void) const
 {
 	_displayTimestamp();
@@ -135,4 +128,3 @@ void	Account::_displayTimestamp(void)
 	strftime(str, 20, "[%Y%m%d_%H%M%S] ", ltm);
 	std::cout << str;
 }
-
