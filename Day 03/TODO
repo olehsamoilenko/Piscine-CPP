@@ -4,3 +4,5 @@ ex00
 	show cur energy
 	show cur hp
 	random problems
+	0(unsigned)-5
+	damage less than armor

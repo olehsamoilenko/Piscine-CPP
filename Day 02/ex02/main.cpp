@@ -22,5 +22,24 @@ int main( void ) {
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
+
+	std::cout << "--------------------------" << std::endl;
+
+	Fixed c(3);
+	Fixed d(4.1f);
+
+	std::cout << c + d << std::endl;
+	std::cout << d - c << std::endl;
+	std::cout << d / c << std::endl;
+	std::cout << (c > d) << std::endl;
+	std::cout << (c < d) << std::endl;
+	std::cout << (c >= d) << std::endl;
+	std::cout << (c <= d) << std::endl;
+	std::cout << (c == d) << std::endl;
+	std::cout << (c != d) << std::endl;
+
+	std::cout << Fixed::max( c, d ) << std::endl;
+	std::cout << Fixed::min( c, d ) << std::endl;
+	
 	return 0;
 }

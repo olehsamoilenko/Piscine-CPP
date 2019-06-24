@@ -28,9 +28,7 @@ Fixed::~Fixed(void)
 Fixed & Fixed::operator=(Fixed const & src)
 {
 	if (this != &src)
-	{
 		_rawBits = src.getRawBits();
-	}
 	return (*this);
 }
 
@@ -75,9 +73,24 @@ std::ostream & operator<<(std::ostream & o, Fixed const & i)
 	return (o);
 }
 
+Fixed Fixed::operator+(Fixed const & src) const
+{
+	return (Fixed(toFloat() + src.toFloat()));
+}
+
+Fixed Fixed::operator-(Fixed const & src) const
+{
+	return (Fixed(toFloat() - src.toFloat()));
+}
+
 Fixed Fixed::operator*(Fixed const & src) const
 {
-	return (Fixed(this->toFloat() * src.toFloat()));
+	return (Fixed(toFloat() * src.toFloat()));
+}
+
+Fixed Fixed::operator/(Fixed const & src) const
+{
+	return (Fixed(toFloat() / src.toFloat()));
 }
 
 Fixed & Fixed::operator++(void)
@@ -89,27 +102,47 @@ Fixed & Fixed::operator++(void)
 Fixed Fixed::operator++(int)
 {
 	Fixed tmp(*this);
-	operator++();
-	return (tmp);
+	_rawBits++;
+	return tmp;
 }
 
-bool Fixed::operator>(Fixed const & src) const
+Fixed & Fixed::operator--(void)
 {
-	return (_rawBits > src.getRawBits());
+	_rawBits--;
+	return (*this);
 }
+
+Fixed Fixed::operator--(int)
+{
+	Fixed tmp(*this);
+	_rawBits--;
+	return tmp;
+}
+
+bool Fixed::operator>(Fixed const & src) const { return (_rawBits > src._rawBits); }
+bool Fixed::operator<(Fixed const & src) const { return (_rawBits < src._rawBits); }
+bool Fixed::operator>=(Fixed const & src) const { return (_rawBits >= src._rawBits); }
+bool Fixed::operator<=(Fixed const & src) const { return (_rawBits <= src._rawBits); }
+bool Fixed::operator==(Fixed const & src) const { return (_rawBits == src._rawBits); }
+bool Fixed::operator!=(Fixed const & src) const { return (_rawBits != src._rawBits); }
+
 
 Fixed & Fixed::max(Fixed & val1, Fixed & val2)
 {
-	if (val1 > val2)
-		return (val1);
-	else
-		return (val2);
+	return (val1 > val2 ? val1 : val2);
 }
 
 const Fixed & Fixed::max(Fixed const & val1, Fixed const & val2)
 {
-	if (val1 > val2)
-		return (val1);
-	else
-		return (val2);
+	return (val1 > val2 ? val1 : val2);
+}
+
+Fixed & Fixed::min(Fixed & val1, Fixed & val2)
+{
+	return (val1 < val2 ? val1 : val2);
+}
+
+const Fixed & Fixed::min(Fixed const & val1, Fixed const & val2)
+{
+	return (val1 < val2 ? val1 : val2);
 }

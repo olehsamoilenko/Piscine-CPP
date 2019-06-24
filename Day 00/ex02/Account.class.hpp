@@ -31,7 +31,6 @@ public:
 	int		checkAmount( void ) const;
 	void	displayStatus( void ) const;
 
-	// mutable int		count;
 
 private:
 
