@@ -10,17 +10,16 @@ Day 00/ex02/account
 Day 01/ex00/pony
 Day 01/ex01/leak
 Day 01/ex02/zombie
+Day 01/ex03/horde
+Day 01/ex04/ex04
 Day 01/ex05/brain
 Day 01/ex06/weapon
-Day 01/ex07/*replace
-Day 01/ex07/noRootsFile
-Day 01/ex07/empty
-Day 01/ex07/echo
-Day 01/ex07/file
+Day 01/ex07/files/
+Day 01/ex07/replace
 Day 01/ex08/human
 Day 01/ex09/logger
 Day 01/ex09/*.log
-Day 01/ex10/cat
+Day 01/ex10/cato9tails
 
 # Day 02
 Day 02/*/fixed

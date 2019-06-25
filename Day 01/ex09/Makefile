@@ -12,7 +12,7 @@
 
 NAME = logger
 CC = clang++
-CFLAGS = #-Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 LIST =	Logger
 CPP =	$(LIST) \
 		main

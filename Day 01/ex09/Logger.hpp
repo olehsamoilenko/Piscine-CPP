@@ -20,6 +20,7 @@ class Logger
 {
 	public:
 		Logger(std::string filename);
+		~Logger(void);
 		void			log(std::string const & dest, std::string const & message);
 
 	private:
@@ -28,7 +29,6 @@ class Logger
 		void			_logToConsole(std::string log);
 		void			_logToFile(std::string log);
 		std::string		_makeLogEntry(std::string message);
-		
 };
 
 #endif

@@ -18,11 +18,14 @@
 class Pony
 {
 	public:
-		Pony(std::string, double weight);
+		Pony(std::string name, double weight);
 		~Pony(void);
 
-		std::string	name;
-		double		weight;
+		void	run(void);
+
+	private:
+		std::string	_name;
+		double		_weight;
 };
 
 #endif

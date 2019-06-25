@@ -10,15 +10,19 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cato9tails
-CC = clang++
+NAME =	horde
+CC =	clang++
 CFLAGS = -Wall -Werror -Wextra
-CPP =	main
+LIST =	Zombie \
+		ZombieHorde
+CPP =	$(LIST) \
+		main
+HPP =	$(addsuffix .hpp, $(LIST))
 OBJ =	$(addsuffix .o, $(CPP))
 
 all: $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HPP)
 	$(CC) -c $< -o $@ $(CFLAGS)
 
 $(NAME): $(OBJ)

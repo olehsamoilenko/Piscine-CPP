@@ -10,19 +10,19 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pony
-CC = clang++
-CFLAGS = #-Wall -Werror -Wextra
-CPP =	Pony \
+NAME =	pony
+CC =	clang++
+CFLAGS = -Wall -Werror -Wextra
+LIST =	Pony
+CPP =	$(LIST) \
 		main
-HPP =	Pony.hpp
-
-OBJ = $(addsuffix .o, $(CPP))
+HPP =	$(addsuffix .hpp, $(LIST))
+OBJ =	$(addsuffix .o, $(CPP))
 
 all: $(NAME)
 
 %.o: %.cpp $(HPP)
-	$(CC) -c $< -o $@ $(INC) $(CFLAGS)
+	$(CC) -c $< -o $@ $(CFLAGS)
 
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)

@@ -12,7 +12,7 @@
 
 NAME = human
 CC = clang++
-CFLAGS = #-Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 LIST =	Human
 CPP =	$(LIST) \
 		main

@@ -16,11 +16,5 @@ void	memoryLeak()
 {
 	std::string* panthere = new std::string("String panthere");
 	std::cout << *panthere << std::endl;
-}
-
-int		main(void)
-{
-	memoryLeak();
-	system("leaks leak");
-	return (0);
+	delete panthere;
 }

@@ -12,12 +12,7 @@
 
 #include "Human.hpp"
 
-Human::Human(void)
-{
-	// _brain = new Brain();
-}
-
-const Brain&	Human::getBrain(void)
+const Brain &	Human::getBrain(void)
 {
 	return (_brain);
 }

@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/19 15:44:33 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/19 15:44:35 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/13 16:36:20 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/13 16:36:22 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Logger.hpp"
+#include "Zombie.hpp"
 
-int		main(void)
+Zombie::Zombie(void)
 {
-	Logger l1("file.log");
+	_type = "default";
+}
 
-	l1.log("file", "hello");
-	l1.log("file", "i'm alive");
+Zombie::~Zombie(void)
+{
+	std::cout << _name << " dead." << std::endl;
+}
 
-	Logger l2("file.log");
+void	Zombie::announce(void) const
+{
+	std::cout << "<" << _name << " (" << _type << ")"
+		<< "> Braiiiiiiinnnssss..." << std::endl;
+}
 
-	l2.log("file", "we are alive");
-	l2.log("file", "making this together:)");
-
-	l1.log("console", "and on console too");
-	l1.log("console", "it's right now!");
-	l1.log("console", "<-- it's right now!");
-
-	l1.log("notepad", "note:(");
-	return (0);
+void	Zombie::setName(std::string name)
+{
+	_name = name;
 }

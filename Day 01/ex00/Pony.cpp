@@ -14,12 +14,18 @@
 
 Pony::Pony(std::string name, double weight)
 {
-	this->name = name;
-	this->weight = weight;
-	std::cout << "Pony " << name << " successfully created!" << std::endl;
+	_name = name;
+	_weight = weight;
+	std::cout << "Pony " << _name << " successfully created!" << std::endl;
 }
 
 Pony::~Pony(void)
 {
-	std::cout << "Pony " << name << " dies :(" << std::endl;
+	std::cout << "Pony " << _name << " dies :(" << std::endl;
+}
+
+void Pony::run(void)
+{
+	std::cout << "Pony " << _name << " weighting " << _weight
+		<< "kg is running!" << std::endl;
 }

@@ -45,7 +45,7 @@ void	Human::action(std::string const & action_name,
 	};
 
 	int i = -1;
-	while (++i < names->length())
+	while (++i < (int)names->length())
 	{
 		if (action_name == names[i])
 		{

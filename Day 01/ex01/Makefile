@@ -12,21 +12,22 @@
 
 NAME = leak
 CC = clang++
-CFLAGS = #-Wall -Werror -Wextra
-CPP =	ex01
+CFLAGS = -Wall -Werror -Wextra
+CPP =	ex01 \
+		main
 
 OBJ = $(addsuffix .o, $(CPP))
 
 all: $(NAME)
 
 %.o: %.cpp
-	$(CC) -c $< -o $@ $(INC) $(CFLAGS)
+	$(CC) -c $< -o $@ $(CFLAGS)
 
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:
-	rm -rf $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)

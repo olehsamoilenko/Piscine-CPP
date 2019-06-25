@@ -12,19 +12,18 @@
 
 NAME = brain
 CC = clang++
-CFLAGS = #-Wall -Werror -Wextra
-CPP =	Brain \
-		Human \
+CFLAGS = -Wall -Werror -Wextra
+LIST =	Brain \
+		Human
+CPP =	$(LIST) \
 		main
-HPP =	Brain.hpp \
-		Human.hpp
-
-OBJ = $(addsuffix .o, $(CPP))
+HPP =	$(addsuffix .hpp, $(LIST))
+OBJ =	$(addsuffix .o, $(CPP))
 
 all: $(NAME)
 
 %.o: %.cpp $(HPP)
-	$(CC) -c $< -o $@ $(INC) $(CFLAGS)
+	$(CC) -c $< -o $@ $(CFLAGS)
 
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)

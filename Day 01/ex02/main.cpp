@@ -12,33 +12,24 @@
 
 #include "ZombieEvent.hpp"
 
-void	func(Zombie z)
-{
-	z.announce();
-}
-
 int		main(void)
 {
 	Zombie z1 = Zombie("Oleh", "ugly");
-	Zombie z2 = Zombie("Vadim", "smart");
-
-	std::cout << "Going to func..." << std::endl;
-	func(z1);
-	std::cout << "Going from func..." << std::endl;
 
 	ZombieEvent e;
-	Zombie *z3 = e.newZombie("Anton");
-	z3->announce();
+
+	Zombie *z2 = e.newZombie("Anton");
+	z2->announce();
+	delete z2;
 
 	e.setZombieType("agressive");
 
 	int i = -1;
-	while (++i < 3)
+	while (++i < 5)
 	{
-		Zombie *z4 = e.randomChump();
-		delete z4;
+		z2 = e.randomChump();
+		delete z2;
 	}
 
-	system("leaks zombie");
 	return (0);
 }

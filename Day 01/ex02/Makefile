@@ -10,21 +10,20 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
-CC = clang++
-CFLAGS = #-Wall -Werror -Wextra
-CPP =	Zombie \
-		ZombieEvent \
+NAME =	zombie
+CC =	clang++
+CFLAGS = -Wall -Werror -Wextra
+LIST =	Zombie \
+		ZombieEvent
+CPP =	$(LIST) \
 		main
-HPP =	Zombie.hpp \
-		ZombieEvent.hpp
-
-OBJ = $(addsuffix .o, $(CPP))
+HPP =	$(addsuffix .hpp, $(LIST))
+OBJ =	$(addsuffix .o, $(CPP))
 
 all: $(NAME)
 
 %.o: %.cpp $(HPP)
-	$(CC) -c $< -o $@ $(INC) $(CFLAGS)
+	$(CC) -c $< -o $@ $(CFLAGS)
 
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)

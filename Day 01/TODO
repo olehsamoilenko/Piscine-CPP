@@ -1,27 +1,13 @@
 *** Day 01 ***
 
-ex00
-	how to call destructor on heap ?
-
-ex01
-	call destructor ?
-	clear ?
-	assign ?
-	delete ?
-
-ex06
-	ponyat'
-	check makefiles! $(INC) $(HPP)
+ex03
+	?  on stack
 
 ex07
-	OK ./replace file \n HELLO
+	?  ./replace file "\n" HELLO
 	OK ./replace fileNotExist in HELLO
 	OK ./replace noRootsFile in HELLO
-
-ex08
-	OK std::find - <algorithm> forbidden
-	
-ex10
-	only started
-
-
+	OK ./replace file "" HELLO
+	OK ./replace file HELLO ""
+	OK ./replace file Chapter Chapter
+	OK ./replace file s1 s1s1

@@ -12,7 +12,7 @@
 
 NAME = weapon
 CC = clang++
-CFLAGS = #-Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 LIST =	Weapon \
 		HumanA \
 		HumanB

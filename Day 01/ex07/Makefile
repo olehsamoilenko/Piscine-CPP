@@ -12,9 +12,8 @@
 
 NAME = replace
 CC = clang++
-CFLAGS = #-Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 CPP =	main
-
 OBJ =	$(addsuffix .o, $(CPP))
 
 all: $(NAME)

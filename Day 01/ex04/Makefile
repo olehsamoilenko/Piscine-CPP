@@ -10,15 +10,15 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cato9tails
-CC = clang++
+NAME =	ex04
+CC =	clang++
 CFLAGS = -Wall -Werror -Wextra
-CPP =	main
+CPP =	ex04
 OBJ =	$(addsuffix .o, $(CPP))
 
 all: $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HPP)
 	$(CC) -c $< -o $@ $(CFLAGS)
 
 $(NAME): $(OBJ)

@@ -17,6 +17,11 @@ Logger::Logger(std::string filename)
 	_ofs.open(filename, std::fstream::app);
 }
 
+Logger::~Logger(void)
+{
+	_ofs.close();
+}
+
 void	Logger::_logToConsole(std::string log)
 {
 	std::cout << log << std::endl;
@@ -51,7 +56,7 @@ void	Logger::log(std::string const & dest, std::string const & message)
 	};
 
 	int i = -1;
-	while (++i < names->length())
+	while (++i < (int)names->length())
 	{
 		if (dest == names[i])
 		{

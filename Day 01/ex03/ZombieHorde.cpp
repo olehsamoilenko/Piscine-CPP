@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.cpp                                    :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/13 16:36:20 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/13 16:36:22 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/25 12:08:27 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/25 12:08:29 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ZombieEvent.hpp"
+#include "ZombieHorde.hpp"
 
 const std::string names[] = {
 	"Artem",
@@ -25,25 +25,24 @@ const std::string names[] = {
 	"Jack"
 };
 
-ZombieEvent::ZombieEvent(void)
+ZombieHorde::ZombieHorde(int n)
 {
-	_type = "default";
+	_n = n;
+	_horde = new Zombie[_n];
 	srand(clock());
+	int i = -1;
+	while (++i < _n)
+		_horde[i].setName(names[rand() % names->length()]);
 }
 
-void	ZombieEvent::setZombieType(std::string type)
+ZombieHorde::~ZombieHorde(void)
 {
-	_type = type;
+	delete [] _horde;
 }
 
-Zombie	*ZombieEvent::newZombie(std::string name) const
+void ZombieHorde::announce(void)
 {
-	return (new Zombie(name, _type));
-}
-
-Zombie	*ZombieEvent::randomChump(void) const
-{
-	Zombie *z = newZombie(names[rand() % names->length()]);
-	z->announce();
-	return (z);
+	int i = -1;
+	while (++i < _n)
+		_horde[i].announce();
 }

@@ -18,14 +18,11 @@
 class Human
 {
 	public:
-		Human(void);
-
-		const Brain		&getBrain(void);
+		const Brain	& getBrain(void);
 		std::string	identify(void);
 
 	private:
 		const Brain	_brain;
-
 };
 
 #endif
