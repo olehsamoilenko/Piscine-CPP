@@ -12,50 +12,6 @@
 
 #include "FragTrap.hpp"
 
-void FragTrap::rangedAttack(std::string const & target)
-{
-	std::cout << "FR4G-TP " << _name << " attacks " <<
-	target << " at range, causing " << _rangedAttackDamage <<
-	" points of damage !" << std::endl;
-}
-
-void FragTrap::meleeAttack(std::string const & target)
-{
-	std::cout << "FR4G-TP " << _name << " attacks " <<
-	target << " in melee, causing " << _meleeAttackDamage <<
-	" points of damage !" << std::endl;
-}
-
-void FragTrap::takeDamage(unsigned int amount)
-{
-	if (amount >= (unsigned)_armorDamageReduction)
-		amount -= _armorDamageReduction;
-	else
-		amount = 0;
-	if (amount >= (unsigned)_hitPoints)
-		_hitPoints = 0;
-	else
-		_hitPoints -= amount;
-	if (_hitPoints < 0)
-		_hitPoints = 0;
-	std::cout << "FR4G-TP " << _name << " taking " <<
-	amount << " points of damage !" << std::endl;
-	std::cout << "* Current hp: " << _hitPoints
-			<< " *" << std::endl;
-}
-
-void FragTrap::beRepaired(unsigned int amount)
-{
-	_hitPoints += amount;
-	if (_hitPoints > _maxHitPoints || amount > (unsigned)_maxHitPoints)
-		_hitPoints = _maxHitPoints;
-
-	std::cout << "FR4G-TP " << _name << " is repairing getting " <<
-	amount << " hit points !" << std::endl;
-	std::cout << "* Current hp: " << _hitPoints
-			<< " *" << std::endl;
-}
-
 typedef void (FragTrap::*func_ptr)(std::string const &);
 
 void FragTrap::vaulthunter_dot_exe(std::string const & target)
@@ -109,46 +65,4 @@ void FragTrap::_rubberDucky(std::string const & target)
 {
 	std::cout << "Prepare to die, " << target << std::endl;
 	std::cout << "Boiyoiyoiyoiyoing!" << std::endl;
-}
-
-FragTrap::FragTrap(std::string name) :
-	_hitPoints(100),
-	_maxHitPoints(100),
-	_energyPoints(100),
-	_maxEnergyPoints(100),
-	_level(1),
-	_name(name),
-	_meleeAttackDamage(30),
-	_rangedAttackDamage(20),
-	_armorDamageReduction(5)
-{
-	std::cout << "FR4G-TP " << _name << " constructed" << std::endl;
-	srand(clock());
-}
-
-FragTrap::FragTrap(FragTrap const & src)
-{
-	*this = src;
-}
-
-FragTrap::~FragTrap(void)
-{
-	std::cout << "FR4G-TP " << _name << " destructed" << std::endl;
-}
-
-FragTrap & FragTrap::operator=(FragTrap const & src)
-{
-	if (this != &src)
-	{
-		_hitPoints = src._hitPoints;
-		_maxHitPoints = src._maxHitPoints;
-		_energyPoints = src._energyPoints;
-		_maxEnergyPoints = src._energyPoints;
-		_level = src._level;
-		_name = src._name;
-		_meleeAttackDamage = src._meleeAttackDamage;
-		_rangedAttackDamage = src._rangedAttackDamage;
-		_armorDamageReduction = src._armorDamageReduction;
-	}
-	return (*this);
 }

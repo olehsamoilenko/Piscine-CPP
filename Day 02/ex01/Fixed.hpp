@@ -35,7 +35,6 @@ class Fixed
 	private:
 		int					_rawBits;
 		static const int	_fractBits;
-
 };
 
 std::ostream & operator<<(std::ostream & o, Fixed const & i);

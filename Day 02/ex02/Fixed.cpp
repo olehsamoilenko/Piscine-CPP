@@ -126,7 +126,6 @@ bool Fixed::operator<=(Fixed const & src) const { return (_rawBits <= src._rawBi
 bool Fixed::operator==(Fixed const & src) const { return (_rawBits == src._rawBits); }
 bool Fixed::operator!=(Fixed const & src) const { return (_rawBits != src._rawBits); }
 
-
 Fixed & Fixed::max(Fixed & val1, Fixed & val2)
 {
 	return (val1 > val2 ? val1 : val2);

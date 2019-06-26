@@ -11,33 +11,37 @@
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int		main(void)
 {
-	FragTrap ft1("Oleh");
+	FragTrap ft("Oleh");
+	ScavTrap st("Oleh");
 
-	ft1.meleeAttack("Taylor Kobb");
-	ft1.rangedAttack("Rakk Hive");
-
-	ft1.takeDamage(60);
-	ft1.takeDamage(50);
-
-	ft1.beRepaired(40);
-	ft1.beRepaired(80);
-
-	int i = -1;
-	while (++i < 5)
-		ft1.vaulthunter_dot_exe("Baron Flynt");
-
-	std::cout << "--------------------------" << std::endl;
-
-	FragTrap ft2("Vadim");
-
-	ft2.takeDamage(3);
-	ft2.takeDamage(10);
-	ft2.takeDamage(100);
-	ft2.takeDamage(-10);
-	ft2.beRepaired(-10);
+	ft.meleeAttack("Taylor Kobb");
+	st.meleeAttack("Taylor Kobb");
+	ft.rangedAttack("Rakk Hive");
+	st.rangedAttack("Rakk Hive");
+	ft.takeDamage(60);
+	st.takeDamage(60);
+	ft.takeDamage(50);
+	st.takeDamage(50);
+	ft.beRepaired(40);
+	st.beRepaired(40);
+	ft.beRepaired(80);
+	st.beRepaired(80);
+	ft.vaulthunter_dot_exe("Baron Flynt");
+	st.challengeNewcomer();
+	ft.takeDamage(3);
+	st.takeDamage(3);
+	ft.takeDamage(10);
+	st.takeDamage(10);
+	ft.takeDamage(100);
+	st.takeDamage(100);
+	ft.takeDamage(-10);
+	st.takeDamage(-10);
+	ft.beRepaired(-10);
+	st.beRepaired(-10);
 
 	return (0);
 }

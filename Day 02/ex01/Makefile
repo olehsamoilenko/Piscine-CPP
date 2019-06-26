@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed
-CC = clang++
-CFLAGS = #-Wall -Werror -Wextra
+NAME =	fixed
+CC =	clang++
+CFLAGS = -Wall -Werror -Wextra
 LIST =	Fixed
 CPP =	$(LIST) \
 		main

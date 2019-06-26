@@ -107,15 +107,15 @@ Parser::Parser(std::string expr)
 	if ((opPos = opWithoutBracketsPos(expr)) != -1)
 	{
 		char op = expr[opPos];
-		// std::cout << "Operation: " << op << std::endl;
+		std::cout << "Operation: " << op << std::endl;
 		std::string left = expr.substr(0, opPos);
-		// std::cout << "LEFT@" << left << "@" << std::endl;
+		std::cout << "LEFT@" << left << "@" << std::endl;
 		std::string right = expr.substr(opPos + 1, expr.length() - opPos - 1);
-		// std::cout << "RIGHT@" << right << "@" << std::endl;
+		std::cout << "RIGHT@" << right << "@" << std::endl;
 		// remove these guys
 		_left = new Parser(left);
 		_right = new Parser(right);
-		// std::cout << _left->_value << " " << op << " " << _right->_value << " = ";
+		std::cout << _left->_value << " " << op << " " << _right->_value << " = ";
 		switch (op) // expr[opPos]
 		{
 			case '+':
@@ -136,7 +136,7 @@ Parser::Parser(std::string expr)
 				exit (-1);
 			}
 		}
-		// std::cout << _value << std::endl;
+		std::cout << _value << std::endl;
 	}
 	else
 	{

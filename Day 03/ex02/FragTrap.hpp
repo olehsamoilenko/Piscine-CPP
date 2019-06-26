@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/20 13:28:38 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/20 13:28:40 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/21 11:39:08 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/21 11:39:09 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-class Fixed
+# include "ClapTrap.hpp"
+
+class FragTrap : ClapTrap
 {
 	public:
-		Fixed(void);
-		Fixed & operator=(Fixed const & src);
-		Fixed(Fixed const & src);
-		~Fixed(void);
-
-		int getRawBits(void) const;
-		void setRawBits(int const raw);
+		void		vaulthunter_dot_exe(std::string const & target);
 
 	private:
-		int					_rawBits;
-		static const int	_fractBits;
+		void		_mechromagician(std::string const & target);
+		void		_funzerker(std::string const & target);
+		void		_blightbot(std::string const & target);
+		void		_miniontrap(std::string const & target);
+		void		_rubberDucky(std::string const & target);
 };
 
 #endif

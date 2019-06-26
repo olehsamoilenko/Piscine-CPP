@@ -29,9 +29,7 @@ Fixed & Fixed::operator=(Fixed const & src)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	if (this != &src)
-	{
 		_rawBits = src.getRawBits();
-	}
 	return (*this);
 }
 

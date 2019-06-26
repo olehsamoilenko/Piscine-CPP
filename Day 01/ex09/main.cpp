@@ -17,6 +17,7 @@ int		main(void)
 	Logger l1("file.log");
 
 	l1.log("file", "hello");
+	l1.log("file", " ");
 	l1.log("file", "i'm alive");
 
 	Logger l2("file.log");

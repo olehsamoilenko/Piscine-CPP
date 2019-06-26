@@ -1,8 +1,9 @@
 *** Day 03 ***
 
 ex00
-	show cur energy
-	show cur hp
-	random problems
-	0(unsigned)-5
-	damage less than armor
+	OK	ft.takeDamage(1); // damage < armor
+	OK	ft.beRepaired(-10);
+	OK	ft.takeDamage(-10);
+
+ex02
+	main

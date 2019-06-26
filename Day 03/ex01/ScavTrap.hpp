@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/21 11:39:08 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/21 11:39:09 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/26 20:00:48 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/26 20:00:49 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
 # include <iostream>
 
-class FragTrap
+class ScavTrap
 {
 	public:
-		FragTrap(std::string name);
-		FragTrap(FragTrap const & src);
-		~FragTrap(void);
-		FragTrap & operator=(FragTrap const & src);
+		ScavTrap(std::string name);
+		ScavTrap(ScavTrap const & src);
+		~ScavTrap(void);
+		ScavTrap & operator=(ScavTrap const & src);
 
 		void		rangedAttack(std::string const & target);
 		void		meleeAttack(std::string const & target);
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
-		void		vaulthunter_dot_exe(std::string const & target);
+		void		challengeNewcomer(void);
 
 	private:
-		FragTrap(void);
+		ScavTrap(void);
 
 		int			_hitPoints;
 		int			_maxHitPoints;
@@ -42,11 +42,12 @@ class FragTrap
 		int			_rangedAttackDamage;
 		int			_armorDamageReduction;
 
-		void		_mechromagician(std::string const & target);
-		void		_funzerker(std::string const & target);
-		void		_blightbot(std::string const & target);
-		void		_miniontrap(std::string const & target);
-		void		_rubberDucky(std::string const & target);
+		// std::string	_randString(std::string array[]);
+		void		_chests(void);
+		void		_kill(void);
+		void		_corrode(void);
+		void		_money(void);
+		void		_vechile(void);
 };
 
 #endif
