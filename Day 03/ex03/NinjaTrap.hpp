@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/26 20:00:48 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/26 20:00:49 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/27 19:18:08 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/27 19:18:09 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef NINJATRAP_HPP
+# define NINJATRAP_HPP
 
-# include "ClapTrap.hpp"
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class NinjaTrap : public ClapTrap
 {
 	public:
-		ScavTrap(void);
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap const & src);
-		~ScavTrap(void);
-		ScavTrap & operator=(ScavTrap const & src);
+		NinjaTrap(void);
+		NinjaTrap(std::string name);
+		NinjaTrap(NinjaTrap const & src);
+		~NinjaTrap(void);
+		NinjaTrap & operator=(NinjaTrap const & src);
 
-		void challengeNewcomer(void);
-
-	private:
-		void _chests(void);
-		void _kill(void);
-		void _corrode(void);
-		void _money(void);
-		void _vechile(void);
+		void ninjaShoebox(ClapTrap trap);
+		void ninjaShoebox(FragTrap trap);
+		void ninjaShoebox(ScavTrap trap);
+		void ninjaShoebox(NinjaTrap trap);
 };
 
 #endif

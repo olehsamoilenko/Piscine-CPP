@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   SuperTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/26 20:00:48 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/26 20:00:49 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/27 19:40:01 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/27 19:40:02 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef SUPERTRAP_HPP
+# define SUPERTRAP_HPP
 
-# include "ClapTrap.hpp"
+# include "FragTrap.hpp"
+# include "NinjaTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class SuperTrap : public FragTrap, public NinjaTrap
 {
 	public:
-		ScavTrap(void);
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap const & src);
-		~ScavTrap(void);
-		ScavTrap & operator=(ScavTrap const & src);
-
-		void challengeNewcomer(void);
-
-	private:
-		void _chests(void);
-		void _kill(void);
-		void _corrode(void);
-		void _money(void);
-		void _vechile(void);
+		SuperTrap(void);
+		SuperTrap(std::string name);
+		SuperTrap(SuperTrap const & src);
+		~SuperTrap(void);
+		SuperTrap & operator=(SuperTrap const & src);
 };
 
 #endif

@@ -22,7 +22,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	_meleeAttackDamage = 20;
 	_rangedAttackDamage = 15;
 	_armorDamageReduction = 3;
-	std::cout << "SC4V-TP " << _name << " constructed" << std::endl;
+	// std::cout << "SC4V-TP " << _name << " constructed" << std::endl;
 }
 
 ScavTrap::ScavTrap(void) : ClapTrap()
@@ -35,7 +35,7 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 	_meleeAttackDamage = 20;
 	_rangedAttackDamage = 15;
 	_armorDamageReduction = 3;
-	std::cout << "Default SC4V-TP constructor called" << std::endl;
+	// std::cout << "Default SC4V-TP constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const & src)
@@ -45,7 +45,7 @@ ScavTrap::ScavTrap(ScavTrap const & src)
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << "SC4V-TP " << _name << " destructed" << std::endl;
+	// std::cout << "SC4V-TP " << _name << " destructed" << std::endl;
 }
 
 ScavTrap & ScavTrap::operator=(ScavTrap const & src)

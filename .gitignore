@@ -1,5 +1,6 @@
 *.o
 *.vscode
+*.DS_Store*
 
 # Day 00
 Day 00/ex00/megaphone
@@ -29,3 +30,5 @@ Day 02/ex04/eval_expr
 Day 03/ex00/fragTrap
 Day 03/ex01/scavTrap
 Day 03/ex02/clapTrap
+Day 03/ex03/ninjaTrap
+Day 03/ex04/superTrap

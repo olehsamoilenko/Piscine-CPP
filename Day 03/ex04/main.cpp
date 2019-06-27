@@ -10,33 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include "SuperTrap.hpp"
 
 int		main(void)
 {
-	FragTrap ft("Oleh Frag");
-	ScavTrap st("Oleh Scav");
-	ClapTrap ct("Oleh Clap");
-
-	ft.meleeAttack("Taylor Kobb");
-	st.meleeAttack("Taylor Kobb");
-	ct.meleeAttack("Taylor Kobb");
-
-	ft.rangedAttack("Rakk Hive");
-	st.rangedAttack("Rakk Hive");
-	ct.rangedAttack("Rakk Hive");
-
-	ft.takeDamage(60);
-	st.takeDamage(60);
-	ct.takeDamage(60);
-
-	ft.beRepaired(40);
-	st.beRepaired(40);
-	ct.beRepaired(40);
-	
-	ft.vaulthunter_dot_exe("Baron Flynt");
-	st.challengeNewcomer();
-
+	SuperTrap st("Oleh");
+	st.vaulthunter_dot_exe("enemy_1");
+	st.ninjaShoebox(ClapTrap("enemy_2"));
 	return (0);
 }

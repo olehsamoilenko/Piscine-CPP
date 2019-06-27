@@ -22,7 +22,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	_meleeAttackDamage = 30;
 	_rangedAttackDamage = 20;
 	_armorDamageReduction = 5;
-	std::cout << "FR4G-TP " << _name << " constructed" << std::endl;
+	// std::cout << "FR4G-TP " << _name << " constructed" << std::endl;
 }
 
 FragTrap::FragTrap(void)
@@ -35,7 +35,7 @@ FragTrap::FragTrap(void)
 	_meleeAttackDamage = 30;
 	_rangedAttackDamage = 20;
 	_armorDamageReduction = 5;
-	std::cout << "Default FR4G-TP constructor called" << std::endl;
+	// std::cout << "Default FR4G-TP constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(FragTrap const & src)
@@ -45,7 +45,7 @@ FragTrap::FragTrap(FragTrap const & src)
 
 FragTrap::~FragTrap(void)
 {
-	std::cout << "FR4G-TP " << _name << " destructed" << std::endl;
+	// std::cout << "FR4G-TP " << _name << " destructed" << std::endl;
 }
 
 FragTrap & FragTrap::operator=(FragTrap const & src)

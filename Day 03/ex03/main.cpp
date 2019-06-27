@@ -12,31 +12,21 @@
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include "NinjaTrap.hpp"
 
 int		main(void)
 {
+	NinjaTrap k("Kicker");
+
+	ClapTrap ct("Oleh Clap");
 	FragTrap ft("Oleh Frag");
 	ScavTrap st("Oleh Scav");
-	ClapTrap ct("Oleh Clap");
+	NinjaTrap nt("Oleh Ninja");
 
-	ft.meleeAttack("Taylor Kobb");
-	st.meleeAttack("Taylor Kobb");
-	ct.meleeAttack("Taylor Kobb");
-
-	ft.rangedAttack("Rakk Hive");
-	st.rangedAttack("Rakk Hive");
-	ct.rangedAttack("Rakk Hive");
-
-	ft.takeDamage(60);
-	st.takeDamage(60);
-	ct.takeDamage(60);
-
-	ft.beRepaired(40);
-	st.beRepaired(40);
-	ct.beRepaired(40);
-	
-	ft.vaulthunter_dot_exe("Baron Flynt");
-	st.challengeNewcomer();
+	k.ninjaShoebox(ct);
+	k.ninjaShoebox(ft);
+	k.ninjaShoebox(st);
+	k.ninjaShoebox(nt);
 
 	return (0);
 }

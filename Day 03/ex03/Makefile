@@ -10,12 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	clapTrap
+NAME =	ninjaTrap
 CC =	clang++
 CFLAGS = #-Wall -Werror -Wextra
 LIST =	FragTrap \
 		ScavTrap \
-		ClapTrap
+		ClapTrap \
+		NinjaTrap
 CPP =	$(LIST) \
 		main
 HPP =	$(addsuffix .hpp, $(LIST))

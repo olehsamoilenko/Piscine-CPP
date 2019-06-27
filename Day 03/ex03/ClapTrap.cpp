@@ -23,7 +23,7 @@ ClapTrap::ClapTrap(void) :
 	_rangedAttackDamage(0),
 	_armorDamageReduction(0)
 {
-	std::cout << "Default ClapTrap constructor called" << std::endl;
+	// std::cout << "Default ClapTrap constructor called" << std::endl;
 	srand(clock());
 }
 
@@ -38,7 +38,7 @@ ClapTrap::ClapTrap(std::string name) :
 	_rangedAttackDamage(0),
 	_armorDamageReduction(0)
 {
-	std::cout << "ClapTrap " << _name << " constructed" << std::endl;
+	// std::cout << "ClapTrap " << _name << " constructed" << std::endl;
 	srand(clock());
 }
 
@@ -49,7 +49,7 @@ ClapTrap::ClapTrap(ClapTrap const & src)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "ClapTrap " << _name << " destructed" << std::endl;
+	// std::cout << "ClapTrap " << _name << " destructed" << std::endl;
 }
 
 ClapTrap & ClapTrap::operator=(ClapTrap const & src)

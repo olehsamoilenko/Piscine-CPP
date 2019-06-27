@@ -11,9 +11,6 @@
 /* ************************************************************************** */
 
 #include "Parser.hpp"
-
-// #include <string>
-
 #include <sstream>
 
 Parser::~Parser(void)
@@ -38,17 +35,14 @@ int Parser::getValue(void) const
 	return (_value);
 }
 
-// позиция + или - вне скобок (первый приоритет) * и / второй
 int		opWithoutBracketsPos(std::string expr)
 {
-	
 	int bracketDepth = 0;
 	int posSimple = -1;
 	int posMult = -1;
 	int i = -1;
 	while (++i < expr.length())
 	{
-		
 		if (expr[i] == '(')
 			bracketDepth++;
 		else if (expr[i] == ')')
@@ -69,7 +63,6 @@ int		opWithoutBracketsPos(std::string expr)
 
 void	removeSpaces(std::string & expr)
 {
-	// error symbols, incorrect brackets
 	std::stringstream ss;
 	ss << expr;
 	std::string res;
@@ -79,7 +72,6 @@ void	removeSpaces(std::string & expr)
 		ss >> tmp;
 		res += tmp;
 	}
-	// std::cout << res << std::endl;
 	expr = res;
 }
 
@@ -94,25 +86,27 @@ bool	removeBrackets(std::string & expr)
 		return (false);
 }
 
-
-
 Parser::Parser(std::string expr)
 {
 	removeSpaces(expr); // one time ?
 	
 	int opPos;
 	
-	if ((opPos = opWithoutBracketsPos(expr)) == -1)
-		removeBrackets(expr);
+	while ((opPos = opWithoutBracketsPos(expr)) == -1)
+	{
+		if (!removeBrackets(expr))
+			break ;
+	}
 	if ((opPos = opWithoutBracketsPos(expr)) != -1)
 	{
 		char op = expr[opPos];
-		std::cout << "Operation: " << op << std::endl;
+		// std::cout << "Operation: " << op << std::endl;
 		std::string left = expr.substr(0, opPos);
-		std::cout << "LEFT@" << left << "@" << std::endl;
+		if (left == "") // negative numbers
+			left = "0";
+		// std::cout << "LEFT@" << left << "@" << std::endl;
 		std::string right = expr.substr(opPos + 1, expr.length() - opPos - 1);
-		std::cout << "RIGHT@" << right << "@" << std::endl;
-		// remove these guys
+		// std::cout << "RIGHT@" << right << "@" << std::endl;
 		_left = new Parser(left);
 		_right = new Parser(right);
 		std::cout << _left->_value << " " << op << " " << _right->_value << " = ";
@@ -143,14 +137,13 @@ Parser::Parser(std::string expr)
 		int number;
 		std::stringstream ss;
 		ss << expr;
-		if (ss >> number)
+		if (ss >> number && !ss.fail() && ss.peek() == -1)
 		{
-			// std::cout << "got number: " << number << std::endl;
 			_value = number;
 		}
 		else
 		{
-			std::cout << "problem :(" << std::endl;
+			std::cout << "Incorrect expression :(" << std::endl;
 			exit(-1);
 		}
 	}
