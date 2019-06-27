@@ -11,24 +11,15 @@
 /* ************************************************************************** */
 
 #include "Parser.hpp"
-// #include <sstream>
-
-
 
 int		main(int argc, char **argv)
 {
-	//           .123456789.123456789.123456789.123456789.
-	// std::string expr = "(1 - 2) / 2 * 3 + 2 * (1 + 5) + (2 - 1)"
-
 	if (argc == 2)
 	{
 		Parser eval(argv[1]);
-		std::cout << "RES: " << eval.getValue() << std::endl;
-
+		std::cout << "Result: " << eval.getValue().toFloat() << std::endl;
 	}
-
-	
-	// system("leaks eval_expr");
-
+	else
+		std::cout << "Usage: ./eval_expr 'expression'" << std::endl;
 	return (0);
 }

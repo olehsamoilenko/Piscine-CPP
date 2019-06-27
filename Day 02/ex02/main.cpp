@@ -40,6 +40,16 @@ int main( void ) {
 
 	std::cout << Fixed::max( c, d ) << std::endl;
 	std::cout << Fixed::min( c, d ) << std::endl;
+
+	std::cout << "--------------------------" << std::endl;
+
+	std::cout << Fixed(0.1f) << std::endl;
+	std::cout << Fixed(0.01f) << std::endl;
+	std::cout << Fixed(0.001f) << std::endl;
+	std::cout << Fixed(0.0001f) << std::endl;
+	std::cout << Fixed(0.10f) << std::endl;
+	std::cout << Fixed(0.10129859825983f) << std::endl;
+	std::cout << Fixed(0.101298598259831f) << std::endl;
 	
 	return 0;
 }

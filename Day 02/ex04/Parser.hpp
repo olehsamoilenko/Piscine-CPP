@@ -14,6 +14,7 @@
 # define PARSER_HPP
 
 # include <iostream>
+# include "Fixed.hpp"
 
 class Parser
 {
@@ -23,12 +24,12 @@ class Parser
 		~Parser(void);
 
 		Parser(std::string expr);
-		int getValue(void) const;
+		Fixed getValue(void) const;
 
 	private:
 		Parser(void);
 
-		int _value;
+		Fixed _value;
 		Parser * _left;
 		Parser * _right;
 };

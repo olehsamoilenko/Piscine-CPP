@@ -30,7 +30,7 @@ Parser::Parser(Parser const & src)
 	*this = src;
 }
 
-int Parser::getValue(void) const
+Fixed Parser::getValue(void) const
 {
 	return (_value);
 }
@@ -41,7 +41,7 @@ int		opWithoutBracketsPos(std::string expr)
 	int posSimple = -1;
 	int posMult = -1;
 	int i = -1;
-	while (++i < expr.length())
+	while (++i < (int)expr.length())
 	{
 		if (expr[i] == '(')
 			bracketDepth++;
@@ -88,10 +88,8 @@ bool	removeBrackets(std::string & expr)
 
 Parser::Parser(std::string expr)
 {
-	removeSpaces(expr); // one time ?
-	
+	removeSpaces(expr);
 	int opPos;
-	
 	while ((opPos = opWithoutBracketsPos(expr)) == -1)
 	{
 		if (!removeBrackets(expr))
@@ -99,18 +97,13 @@ Parser::Parser(std::string expr)
 	}
 	if ((opPos = opWithoutBracketsPos(expr)) != -1)
 	{
-		char op = expr[opPos];
-		// std::cout << "Operation: " << op << std::endl;
 		std::string left = expr.substr(0, opPos);
-		if (left == "") // negative numbers
+		if (left == "")
 			left = "0";
-		// std::cout << "LEFT@" << left << "@" << std::endl;
 		std::string right = expr.substr(opPos + 1, expr.length() - opPos - 1);
-		// std::cout << "RIGHT@" << right << "@" << std::endl;
 		_left = new Parser(left);
 		_right = new Parser(right);
-		std::cout << _left->_value << " " << op << " " << _right->_value << " = ";
-		switch (op) // expr[opPos]
+		switch (expr[opPos])
 		{
 			case '+':
 				_value = _left->_value + _right->_value;
@@ -124,23 +117,15 @@ Parser::Parser(std::string expr)
 			case '/':
 				_value = _left->_value / _right->_value;
 				break;
-			default:
-			{
-				std::cout << "hui ;(" << std::endl;
-				exit (-1);
-			}
 		}
-		std::cout << _value << std::endl;
 	}
 	else
 	{
-		int number;
+		float number;
 		std::stringstream ss;
 		ss << expr;
 		if (ss >> number && !ss.fail() && ss.peek() == -1)
-		{
-			_value = number;
-		}
+			_value = Fixed(number);
 		else
 		{
 			std::cout << "Incorrect expression :(" << std::endl;

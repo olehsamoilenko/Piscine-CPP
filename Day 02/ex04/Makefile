@@ -10,10 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = eval_expr
-CC = clang++
-CFLAGS = #-Wall -Werror -Wextra
-LIST =	Parser
+NAME =	eval_expr
+CC =	clang++
+CFLAGS = -Wall -Werror -Wextra
+LIST =	Parser \
+		Fixed
 CPP =	$(LIST) \
 		main
 HPP =	$(addsuffix .hpp, $(LIST))
