@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sorcerer.hpp                                       :+:      :+:    :+:   */
+/*   Victim.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,29 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORCERER_HPP
-# define SORCERER_HPP
+#ifndef VICTIM_HPP
+# define VICTIM_HPP
 
-# include "Victim.hpp"
+# include <iostream>
 
-class Sorcerer
+class Victim
 {
 	public:
-		Sorcerer(Sorcerer const & src);
-		Sorcerer & operator=(Sorcerer const & src);
-		~Sorcerer(void);
-		Sorcerer(std::string name, std::string title);
-
+		Victim(void);
+		Victim(Victim const & src);
+		Victim & operator=(Victim const & src);
+		Victim(std::string name);
+		virtual ~Victim(void);
+		
 		std::string getName(void) const;
-		std::string getTitle(void) const;
-		void polymorph(Victim const &) const;
+		virtual void getPolymorphed(void) const;
 
-	private:
-		Sorcerer(void);
+	protected:
 		std::string	_name;
-		std::string	_title;
 };
 
-std::ostream & operator<<(std::ostream & o, Sorcerer const & src);
+std::ostream & operator<<(std::ostream & o, Victim const & src);
 
 #endif

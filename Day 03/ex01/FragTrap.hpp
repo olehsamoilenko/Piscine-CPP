@@ -18,6 +18,7 @@
 class FragTrap
 {
 	public:
+		FragTrap(void);
 		FragTrap(std::string name);
 		FragTrap(FragTrap const & src);
 		~FragTrap(void);
@@ -30,7 +31,6 @@ class FragTrap
 		void		vaulthunter_dot_exe(std::string const & target);
 
 	private:
-		FragTrap(void);
 
 		int			_hitPoints;
 		int			_maxHitPoints;

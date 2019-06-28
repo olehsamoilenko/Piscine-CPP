@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Squad.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/21 11:39:14 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/21 11:39:16 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/28 20:48:30 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/28 20:48:32 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "Squad.hpp"
 
-int		main(void)
+Squad::Squad(void)
 {
-	FragTrap ft1("Oleh");
+	
+}
 
-	ft1.meleeAttack("Taylor Kobb");
-	ft1.rangedAttack("Rakk Hive");
+Squad::~Squad(void)
+{
 
-	ft1.takeDamage(60);
-	ft1.takeDamage(50);
+}
 
-	ft1.beRepaired(40);
-	ft1.beRepaired(80);
+Squad & Squad::operator=(Squad const & src)
+{
+	if (this != &src)
+	{
 
-	int i = -1;
-	while (++i < 5)
-		ft1.vaulthunter_dot_exe("Baron Flynt");
+	}
+	return (*this);
+}
 
-	return (0);
+Squad::Squad(Squad const & src)
+{
+	*this = src;
 }

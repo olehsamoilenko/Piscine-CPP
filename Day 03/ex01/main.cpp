@@ -32,16 +32,5 @@ int		main(void)
 	st.beRepaired(80);
 	ft.vaulthunter_dot_exe("Baron Flynt");
 	st.challengeNewcomer();
-	ft.takeDamage(3);
-	st.takeDamage(3);
-	ft.takeDamage(10);
-	st.takeDamage(10);
-	ft.takeDamage(100);
-	st.takeDamage(100);
-	ft.takeDamage(-10);
-	st.takeDamage(-10);
-	ft.beRepaired(-10);
-	st.beRepaired(-10);
-
 	return (0);
 }

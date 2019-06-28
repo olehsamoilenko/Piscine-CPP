@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/21 11:39:14 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/21 11:39:16 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/28 13:40:34 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/28 13:40:38 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#ifndef PLASMARIFLE_HPP
+# define PLASMARIFLE_HPP
 
-int		main(void)
+# include "AWeapon.hpp"
+
+class PlasmaRifle : public AWeapon
 {
-	FragTrap ft1("Oleh");
+	public:
+		PlasmaRifle(void);
+		PlasmaRifle(PlasmaRifle const &);
+		PlasmaRifle & operator=(PlasmaRifle const &);
+		virtual ~PlasmaRifle(void);
 
-	ft1.meleeAttack("Taylor Kobb");
-	ft1.rangedAttack("Rakk Hive");
+		void attack(void) const;
+};
 
-	ft1.takeDamage(60);
-	ft1.takeDamage(50);
-
-	ft1.beRepaired(40);
-	ft1.beRepaired(80);
-
-	int i = -1;
-	while (++i < 5)
-		ft1.vaulthunter_dot_exe("Baron Flynt");
-
-	return (0);
-}
+#endif

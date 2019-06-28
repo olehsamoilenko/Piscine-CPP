@@ -5,29 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/21 11:39:14 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/21 11:39:16 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/28 20:43:20 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/28 20:43:21 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "ISquad.hpp"
 
-int		main(void)
+int main()
 {
-	FragTrap ft1("Oleh");
-
-	ft1.meleeAttack("Taylor Kobb");
-	ft1.rangedAttack("Rakk Hive");
-
-	ft1.takeDamage(60);
-	ft1.takeDamage(50);
-
-	ft1.beRepaired(40);
-	ft1.beRepaired(80);
-
-	int i = -1;
-	while (++i < 5)
-		ft1.vaulthunter_dot_exe("Baron Flynt");
-
-	return (0);
+	ISpaceMarine* bob = new TacticalMarine;
+	ISpaceMarine* jim = new AssaultTerminator;
+	ISquad* vlc = new Squad;
+	vlc->push(bob);
+	vlc->push(jim);
+	for (int i = 0; i < vlc->getCount(); ++i)
+	{
+		ISpaceMarine* cur = vlc->getUnit(i);
+		cur->battleCry();
+		cur->rangedAttack();
+		cur->meleeAttack();
+	}
+	delete vlc;
+	return 0;
 }

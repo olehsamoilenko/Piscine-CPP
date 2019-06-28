@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   SuperTrap.hpp                                      :+:      :+:    :+:   */
+/*   AWeapon.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/27 19:40:01 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/27 19:40:02 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/28 13:35:37 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/28 13:35:39 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SUPERTRAP_HPP
-# define SUPERTRAP_HPP
+#ifndef AWEAPON_HPP
+# define AWEAPON_HPP
 
-# include "FragTrap.hpp"
-# include "NinjaTrap.hpp"
+# include <iostream>
 
-class SuperTrap : public FragTrap, public NinjaTrap
+class AWeapon
 {
 	public:
-		SuperTrap(void);
-		SuperTrap(std::string name);
-		SuperTrap(SuperTrap const & src);
-		~SuperTrap(void);
-		SuperTrap & operator=(SuperTrap const & src);
+		AWeapon(AWeapon const &);
+		AWeapon & operator=(AWeapon const &);
+		AWeapon(std::string const & name, int apcost, int damage);
+		virtual ~AWeapon(void);
 
-		void rangedAttack(std::string const & target);
-		void meleeAttack(std::string const & target);
+		std::string getName() const;
+		int getAPCost() const;
+		int getDamage() const;
+		virtual void attack() const = 0;
+
+	protected:
+		AWeapon(void);
+
+		std::string _name;
+		int _damage;
+		int _APCost;
 };
 
 #endif

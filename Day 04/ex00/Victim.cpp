@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sorcerer.cpp                                       :+:      :+:    :+:   */
+/*   Victim.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,47 +10,52 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sorcerer.hpp"
+#include "Victim.hpp"
 
-Sorcerer::Sorcerer(std::string name, std::string title)
+Victim::Victim(void)
+{
+	_name = "Default";
+	std::cout << "Some random victim called " << _name <<
+		" just popped !" << std::endl;
+}
+
+Victim::Victim(std::string name)
 {
 	_name = name;
-	_title = title;
-	std::cout << _name << ", " << _title << ", is born !" << std::endl;
+	std::cout << "Some random victim called " << _name <<
+		" just popped !" << std::endl;
 }
 
-Sorcerer::~Sorcerer(void)
+Victim::~Victim(void) // virtual ?
 {
-	std::cout << _name << ", " << _title
-		<< ", is dead. Consequences will never be the same !" << std::endl;
+	std::cout << "Victim " << _name <<
+		" just died for no apparent reason !" << std::endl;
 }
 
-std::string Sorcerer::getName(void) const { return _name; }
-std::string Sorcerer::getTitle(void) const { return _title; }
+std::string Victim::getName(void) const { return _name; }
 
-std::ostream & operator<<(std::ostream & o, Sorcerer const & src)
+std::ostream & operator<<(std::ostream & o, Victim const & src)
 {
-	o << "I am " << src.getName() << ", " << src.getTitle()
-		<< ", and I like ponies !" << std::endl;
+	o << "I am " << src.getName() << " and I like otters !" << std::endl;
 	return (o);
 }
 
-void Sorcerer::polymorph(Victim const & src) const
+void Victim::getPolymorphed(void) const
 {
-	src.getPolymorphed();
+	std::cout << _name <<
+		" has been turned into a cute little sheep !" << std::endl;
 }
 
-Sorcerer & Sorcerer::operator=(Sorcerer const & src)
+Victim & Victim::operator=(Victim const & src)
 {
 	if (this != &src)
 	{
 		_name = src._name;
-		_title = src._title;
 	}
 	return (*this);
 }
 
-Sorcerer::Sorcerer(Sorcerer const & src)
+Victim::Victim(Victim const & src)
 {
 	*this = src;
 }

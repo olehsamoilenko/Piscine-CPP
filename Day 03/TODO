@@ -4,10 +4,4 @@ ex00
 	OK	ft.takeDamage(1); // damage < armor
 	OK	ft.beRepaired(-10);
 	OK	ft.takeDamage(-10);
-	default constructor
 
-ex01
-	default constructor
-
-constructor destructor tabs
-multiple inheritance virtual

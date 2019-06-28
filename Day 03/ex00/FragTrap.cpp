@@ -126,6 +126,21 @@ FragTrap::FragTrap(std::string name) :
 	srand(clock());
 }
 
+FragTrap::FragTrap(void) :
+	_hitPoints(100),
+	_maxHitPoints(100),
+	_energyPoints(100),
+	_maxEnergyPoints(100),
+	_level(1),
+	_name("FragTrap"),
+	_meleeAttackDamage(30),
+	_rangedAttackDamage(20),
+	_armorDamageReduction(5)
+{
+	std::cout << "FR4G-TP " << _name << " constructed" << std::endl;
+	srand(clock());
+}
+
 FragTrap::FragTrap(FragTrap const & src)
 {
 	*this = src;

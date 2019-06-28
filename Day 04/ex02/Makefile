@@ -10,13 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	sorcerer
+NAME =	squad
 CC =	clang++
-CFLAGS = #-Wall -Werror -Wextra
-LIST =	Sorcerer \
-		Victim \
-		Peon \
-		Rose
+CFLAGS = -Wall -Werror -Wextra
+LIST =	ISquad \
+		ISpaceMarine \
+		Squad \
+		TacticalMarine
 CPP =	$(LIST) \
 		main
 HPP =	$(addsuffix .hpp, $(LIST))

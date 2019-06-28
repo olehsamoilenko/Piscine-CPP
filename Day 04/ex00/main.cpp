@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "Sorcerer.hpp"
+#include "Peon.hpp"
+#include "Rose.hpp"
 
 int main()
 {
@@ -20,5 +22,19 @@ int main()
 	std::cout << robert << jim << joe;
 	robert.polymorph(jim);
 	robert.polymorph(joe);
+
+	std::cout << "------------------------" << std::endl;
+	Victim *p = new Peon("Oleh");
+	delete p;
+	std::cout << "------------------------" << std::endl;
+	Rose *r1 = new Rose("Flower");
+	delete r1;
+	std::cout << "------------------------" << std::endl;
+	Victim *r2 = new Rose("Flower");
+	delete r2;
+	std::cout << "------------------------" << std::endl;
+
+	
+
 	return 0;
 }

@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PowerFist.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/21 11:39:14 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/21 11:39:16 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/28 13:40:34 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/28 13:40:38 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#ifndef POWERFIST_HPP
+# define POWERFIST_HPP
 
-int		main(void)
+# include "AWeapon.hpp"
+
+class PowerFist : public AWeapon
 {
-	FragTrap ft1("Oleh");
+	public:
+		PowerFist(void);
+		PowerFist(PowerFist const &);
+		PowerFist & operator=(PowerFist const &);
+		virtual ~PowerFist(void);
 
-	ft1.meleeAttack("Taylor Kobb");
-	ft1.rangedAttack("Rakk Hive");
+		void attack(void) const;
+};
 
-	ft1.takeDamage(60);
-	ft1.takeDamage(50);
-
-	ft1.beRepaired(40);
-	ft1.beRepaired(80);
-
-	int i = -1;
-	while (++i < 5)
-		ft1.vaulthunter_dot_exe("Baron Flynt");
-
-	return (0);
-}
+#endif

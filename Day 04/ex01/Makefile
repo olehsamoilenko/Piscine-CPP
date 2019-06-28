@@ -10,13 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	sorcerer
+NAME =	weapon
 CC =	clang++
-CFLAGS = #-Wall -Werror -Wextra
-LIST =	Sorcerer \
-		Victim \
-		Peon \
-		Rose
+CFLAGS = -Wall -Werror -Wextra
+LIST =	AWeapon \
+		PlasmaRifle \
+		PowerFist \
+		Enemy \
+		SuperMutant \
+		RadScorpion \
+		Character
 CPP =	$(LIST) \
 		main
 HPP =	$(addsuffix .hpp, $(LIST))

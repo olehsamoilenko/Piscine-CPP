@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/21 11:39:14 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/21 11:39:16 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/28 14:34:57 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/28 14:34:58 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#ifndef RADSCORPION_HPP
+# define RADSCORPION_HPP
 
-int		main(void)
+# include "Enemy.hpp"
+
+class RadScorpion : public Enemy
 {
-	FragTrap ft1("Oleh");
+	public:
+		RadScorpion(void);
+		RadScorpion(RadScorpion const &);
+		RadScorpion & operator=(RadScorpion const &);
+		virtual ~RadScorpion();
+};
 
-	ft1.meleeAttack("Taylor Kobb");
-	ft1.rangedAttack("Rakk Hive");
-
-	ft1.takeDamage(60);
-	ft1.takeDamage(50);
-
-	ft1.beRepaired(40);
-	ft1.beRepaired(80);
-
-	int i = -1;
-	while (++i < 5)
-		ft1.vaulthunter_dot_exe("Baron Flynt");
-
-	return (0);
-}
+#endif

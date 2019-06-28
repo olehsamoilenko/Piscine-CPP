@@ -12,7 +12,7 @@
 
 NAME =	clapTrap
 CC =	clang++
-CFLAGS = #-Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 LIST =	FragTrap \
 		ScavTrap \
 		ClapTrap

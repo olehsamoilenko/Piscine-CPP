@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/21 11:39:14 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/21 11:39:16 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/28 14:34:57 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/28 14:34:58 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#ifndef ENEMY_HPP
+# define ENEMY_HPP
 
-int		main(void)
+# include <iostream>
+
+class Enemy
 {
-	FragTrap ft1("Oleh");
+	public:
+		Enemy(Enemy const &);
+		Enemy & operator=(Enemy const &);
+		Enemy(int hp, std::string const & type);
+		virtual ~Enemy();
 
-	ft1.meleeAttack("Taylor Kobb");
-	ft1.rangedAttack("Rakk Hive");
+		std::string /*[...]*/ getType() const;
+		int getHP(void) const;
+		virtual void takeDamage(int);
+	
+	protected:
+		Enemy(void);
 
-	ft1.takeDamage(60);
-	ft1.takeDamage(50);
+		int _hp;
+		std::string _type;
+};
 
-	ft1.beRepaired(40);
-	ft1.beRepaired(80);
-
-	int i = -1;
-	while (++i < 5)
-		ft1.vaulthunter_dot_exe("Baron Flynt");
-
-	return (0);
-}
+#endif

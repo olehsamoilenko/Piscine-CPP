@@ -22,7 +22,7 @@ NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name)
 	_meleeAttackDamage = 60;
 	_rangedAttackDamage = 5;
 	_armorDamageReduction = 0;
-	// std::cout << "NINJA-TP " << _name << " constructed" << std::endl;
+	std::cout << "NINJA-TP " << _name << " constructed" << std::endl;
 }
 
 NinjaTrap::NinjaTrap(void)
@@ -35,7 +35,7 @@ NinjaTrap::NinjaTrap(void)
 	_meleeAttackDamage = 60;
 	_rangedAttackDamage = 5;
 	_armorDamageReduction = 0;
-	// std::cout << "Default NINJA-TP constructor called" << std::endl;
+	std::cout << "Default NINJA-TP constructor called" << std::endl;
 }
 
 NinjaTrap::NinjaTrap(NinjaTrap const & src)
@@ -45,7 +45,7 @@ NinjaTrap::NinjaTrap(NinjaTrap const & src)
 
 NinjaTrap::~NinjaTrap(void)
 {
-	// std::cout << "NINJA-TP " << _name << " destructed" << std::endl;
+	std::cout << "NINJA-TP " << _name << " destructed" << std::endl;
 }
 
 NinjaTrap & NinjaTrap::operator=(NinjaTrap const & src)
@@ -65,25 +65,25 @@ NinjaTrap & NinjaTrap::operator=(NinjaTrap const & src)
 	return (*this);
 }
 
-void NinjaTrap::ninjaShoebox(ClapTrap trap)
+void NinjaTrap::ninjaShoebox(ClapTrap & trap)
 {
 	std::cout << "NNJ-TP " << _name << " making ClapTrap knocked out!" << std::endl;
 	trap.takeDamage(_meleeAttackDamage);
 }
 
-void NinjaTrap::ninjaShoebox(FragTrap trap)
+void NinjaTrap::ninjaShoebox(FragTrap & trap)
 {
 	std::cout << "NNJ-TP " << _name << " making ClapTrap knocked out!" << std::endl;
 	trap.takeDamage(_meleeAttackDamage);
 }
 
-void NinjaTrap::ninjaShoebox(ScavTrap trap)
+void NinjaTrap::ninjaShoebox(ScavTrap & trap)
 {
 	std::cout << "NNJ-TP " << _name << " making ClapTrap knocked out!" << std::endl;
 	trap.takeDamage(_meleeAttackDamage);
 }
 
-void NinjaTrap::ninjaShoebox(NinjaTrap trap)
+void NinjaTrap::ninjaShoebox(NinjaTrap & trap)
 {
 	std::cout << "NNJ-TP " << _name << " making ClapTrap knocked out!" << std::endl;
 	trap.takeDamage(_meleeAttackDamage);

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sorcerer.cpp                                       :+:      :+:    :+:   */
+/*   Peon.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,47 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sorcerer.hpp"
+#include "Peon.hpp"
 
-Sorcerer::Sorcerer(std::string name, std::string title)
+Peon::Peon(void)
 {
-	_name = name;
-	_title = title;
-	std::cout << _name << ", " << _title << ", is born !" << std::endl;
+	_name = "Default";
+	std::cout << "Zog zog." << std::endl;
 }
 
-Sorcerer::~Sorcerer(void)
+Peon::Peon(std::string name) : Victim(name)
 {
-	std::cout << _name << ", " << _title
-		<< ", is dead. Consequences will never be the same !" << std::endl;
+	std::cout << "Zog zog." << std::endl;
 }
 
-std::string Sorcerer::getName(void) const { return _name; }
-std::string Sorcerer::getTitle(void) const { return _title; }
-
-std::ostream & operator<<(std::ostream & o, Sorcerer const & src)
+Peon::~Peon(void)
 {
-	o << "I am " << src.getName() << ", " << src.getTitle()
-		<< ", and I like ponies !" << std::endl;
-	return (o);
+	std::cout << "Bleuark..." << std::endl;
 }
 
-void Sorcerer::polymorph(Victim const & src) const
+void Peon::getPolymorphed(void) const
 {
-	src.getPolymorphed();
+	std::cout << _name <<
+		" has been turned into a pink pony !" << std::endl;
 }
 
-Sorcerer & Sorcerer::operator=(Sorcerer const & src)
+Peon & Peon::operator=(Peon const & src)
 {
 	if (this != &src)
 	{
 		_name = src._name;
-		_title = src._title;
 	}
 	return (*this);
 }
 
-Sorcerer::Sorcerer(Sorcerer const & src)
+Peon::Peon(Peon const & src)
 {
 	*this = src;
 }

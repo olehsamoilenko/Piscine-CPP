@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ISquad.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/21 11:39:14 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/21 11:39:16 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/28 20:39:06 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/28 20:39:09 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#ifndef ISQUAD
+# define ISQUAD
 
-int		main(void)
+# include "ISpaceMarine.hpp"
+
+class ISquad
 {
-	FragTrap ft1("Oleh");
+	public:
+		virtual ~ISquad() {}
+		virtual int getCount() const = 0;
+		virtual ISpaceMarine* getUnit(int) const = 0;
+		virtual int push(ISpaceMarine*) = 0;
+};
 
-	ft1.meleeAttack("Taylor Kobb");
-	ft1.rangedAttack("Rakk Hive");
-
-	ft1.takeDamage(60);
-	ft1.takeDamage(50);
-
-	ft1.beRepaired(40);
-	ft1.beRepaired(80);
-
-	int i = -1;
-	while (++i < 5)
-		ft1.vaulthunter_dot_exe("Baron Flynt");
-
-	return (0);
-}
+#endif

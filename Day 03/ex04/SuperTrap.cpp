@@ -16,13 +16,13 @@ SuperTrap::SuperTrap(std::string name) : ClapTrap(name)
 {
 	_hitPoints = 100;
 	_maxHitPoints = 100;
-	_energyPoints = 50;
-	_maxEnergyPoints = 50;
+	_energyPoints = 120;
+	_maxEnergyPoints = 120;
 	_level = 1;
-	_meleeAttackDamage = 20;
-	_rangedAttackDamage = 15;
-	_armorDamageReduction = 3;
-	// std::cout << "SC4V-TP " << _name << " constructed" << std::endl;
+	_meleeAttackDamage = 60;
+	_rangedAttackDamage = 20;
+	_armorDamageReduction = 5;
+	std::cout << "SUPER-TP " << _name << " constructed" << std::endl;
 }
 
 SuperTrap::SuperTrap(void) : ClapTrap()
@@ -35,7 +35,7 @@ SuperTrap::SuperTrap(void) : ClapTrap()
 	_meleeAttackDamage = 20;
 	_rangedAttackDamage = 15;
 	_armorDamageReduction = 3;
-	// std::cout << "Default SC4V-TP constructor called" << std::endl;
+	std::cout << "Default SUPER-TP constructor called" << std::endl;
 }
 
 SuperTrap::SuperTrap(SuperTrap const & src)
@@ -45,7 +45,7 @@ SuperTrap::SuperTrap(SuperTrap const & src)
 
 SuperTrap::~SuperTrap(void)
 {
-	// std::cout << "SC4V-TP " << _name << " destructed" << std::endl;
+	std::cout << "SUPER-TP " << _name << " destructed" << std::endl;
 }
 
 SuperTrap & SuperTrap::operator=(SuperTrap const & src)
@@ -63,4 +63,14 @@ SuperTrap & SuperTrap::operator=(SuperTrap const & src)
 		_armorDamageReduction = src._armorDamageReduction;
 	}
 	return (*this);
+}
+
+void SuperTrap::rangedAttack(std::string const & target)
+{
+	FragTrap::rangedAttack(target);
+}
+
+void SuperTrap::meleeAttack(std::string const & target)
+{
+	NinjaTrap::meleeAttack(target);
 }
