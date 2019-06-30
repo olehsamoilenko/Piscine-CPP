@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,28 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_HPP
-# define ENEMY_HPP
+#ifndef MateriaSource_HPP
+# define MateriaSource_HPP
 
 # include <iostream>
+# include "ICharacter.hpp"
+# include "IMateriaSource.hpp"
 
-class Enemy
+class MateriaSource : public IMateriaSource
 {
 	public:
-		Enemy(Enemy const &);
-		Enemy & operator=(Enemy const &);
-		Enemy(int hp, std::string const & type);
-		virtual ~Enemy();
+		MateriaSource(void);
+		MateriaSource(MateriaSource const &);
+		MateriaSource & operator=(MateriaSource const &);
+		virtual ~MateriaSource();
 
-		std::string getType() const;
-		int getHP(void) const;
-		virtual void takeDamage(int);
-	
+		void learnMateria(AMateria* m);
+		AMateria* createMateria(std::string const & type);
+
 	private:
-		Enemy(void);
-
-		int _hp;
-		std::string _type;
+		AMateria * _source[4];
 };
 
 #endif

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   SuperMutant.cpp                                    :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,32 +10,56 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "SuperMutant.hpp"
+#include "MateriaSource.hpp"
 
-SuperMutant::SuperMutant(void) : Enemy(170, "Super Mutant")
+void MateriaSource::learnMateria(AMateria* m)
 {
-	std::cout << "Gaaah. Me want smash heads !" << std::endl;
+	int i = -1;
+	while (++i < 4)
+	{
+		if (_source[i] == NULL)
+		{
+			_source[i] = m;
+			return ;
+		}
+	}
+	std::cout << "* source is full *" << std::endl;
 }
 
-SuperMutant::~SuperMutant(void)
+AMateria* MateriaSource::createMateria(std::string const & type)
 {
-	std::cout << "Aaargh ..." << std::endl;
+	int i = -1;
+	while (++i < 4)
+	{
+		if (_source[i]->getType() == type)
+			return (_source[i]->clone());
+	}
+	std::cout << "* type doesn't exist *" << std::endl;
+	return (NULL);
 }
 
-void SuperMutant::takeDamage(int damage)
+MateriaSource::MateriaSource(void)
 {
-	Enemy::takeDamage(damage - 3);
+	int i = -1;
+	while (++i < 4)
+		_source[i] = NULL;
 }
 
-SuperMutant & SuperMutant::operator=(SuperMutant const & src)
+MateriaSource::~MateriaSource(void)
+{
+
+}
+
+MateriaSource & MateriaSource::operator=(MateriaSource const & src)
 {
 	if (this != &src)
-		Enemy::operator=(src);
+	{
+		
+	}
 	return (*this);
 }
 
-SuperMutant::SuperMutant(SuperMutant const & src) :
-	Enemy(src.getHP(), src.getType())
+MateriaSource::MateriaSource(MateriaSource const & src)
 {
 	*this = src;
 }

@@ -1,41 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.cpp                                      :+:      :+:    :+:   */
+/*   DeepCoreMiner.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/28 13:40:28 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/28 13:40:30 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/29 21:48:55 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/29 21:48:57 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PowerFist.hpp"
+#include "DeepCoreMiner.hpp"
 
-PowerFist::PowerFist(void) : AWeapon("Power Fist", 8, 50)
+void DeepCoreMiner::mine(IAsteroid * ast)
+{
+	std::cout << "* mining deep ... got " <<
+		ast->beMined(this) << " ! *" << std::endl;
+}
+
+DeepCoreMiner::DeepCoreMiner(void)
 {
 
 }
 
-void PowerFist::attack(void) const
-{
-	std::cout << "* pschhh... SBAM! *" << std::endl;
-}
-
-PowerFist::~PowerFist(void)
+DeepCoreMiner::~DeepCoreMiner(void)
 {
 
 }
 
-PowerFist & PowerFist::operator=(PowerFist const & src)
+DeepCoreMiner & DeepCoreMiner::operator=(DeepCoreMiner const & src)
 {
 	if (this != &src)
-		AWeapon::operator=(src);
+	{
+		
+	}
 	return (*this);
 }
 
-PowerFist::PowerFist(PowerFist const & src) :
-	AWeapon(src.getName(), src.getAPCost(), src.getDamage())
+DeepCoreMiner::DeepCoreMiner(DeepCoreMiner const & src)
 {
 	*this = src;
 }
+

@@ -10,17 +10,18 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	sorcerer
+NAME =	materia
 CC =	clang++
 CFLAGS = -Wall -Werror -Wextra
-LIST =	Sorcerer \
-		Victim \
-		Peon \
-		Rose
-CPP =	$(LIST) \
-		main
-HPP =	$(addsuffix .hpp, $(LIST))
-OBJ =	$(addsuffix .o, $(CPP))
+CLASS =	AMateria \
+		Ice \
+		Character \
+		MateriaSource \
+		Cure
+IFACE =	ICharacter \
+		IMateriaSource
+HPP =	$(addsuffix .hpp, $(CLASS) $(IFACE))
+OBJ =	$(addsuffix .o, $(CLASS) main)
 
 all: $(NAME)
 

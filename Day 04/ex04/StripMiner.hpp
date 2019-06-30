@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   StripMiner.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/28 14:34:57 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/28 14:34:58 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/29 21:49:00 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/29 21:49:01 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_HPP
-# define ENEMY_HPP
+#ifndef STRIPMINER_HPP
+# define STRIPMINER_HPP
 
-# include <iostream>
+# include "IMiningLaser.hpp"
 
-class Enemy
+class StripMiner : public IMiningLaser
 {
 	public:
-		Enemy(Enemy const &);
-		Enemy & operator=(Enemy const &);
-		Enemy(int hp, std::string const & type);
-		virtual ~Enemy();
+		void mine(IAsteroid * ast);
 
-		std::string getType() const;
-		int getHP(void) const;
-		virtual void takeDamage(int);
-	
-	private:
-		Enemy(void);
-
-		int _hp;
-		std::string _type;
+		StripMiner(void);
+		StripMiner(StripMiner const &);
+		StripMiner & operator=(StripMiner const &);
+		virtual ~StripMiner();
 };
 
 #endif

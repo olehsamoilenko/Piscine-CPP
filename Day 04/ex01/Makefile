@@ -19,7 +19,9 @@ LIST =	AWeapon \
 		Enemy \
 		SuperMutant \
 		RadScorpion \
-		Character
+		Character \
+		Beast \
+		BulletGun
 CPP =	$(LIST) \
 		main
 HPP =	$(addsuffix .hpp, $(LIST))

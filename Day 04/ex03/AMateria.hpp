@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,28 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_HPP
-# define ENEMY_HPP
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
 # include <iostream>
+# include "ICharacter.hpp"
 
-class Enemy
+class ICharacter;
+
+class AMateria
 {
-	public:
-		Enemy(Enemy const &);
-		Enemy & operator=(Enemy const &);
-		Enemy(int hp, std::string const & type);
-		virtual ~Enemy();
-
-		std::string getType() const;
-		int getHP(void) const;
-		virtual void takeDamage(int);
-	
 	private:
-		Enemy(void);
+		std::string type_;
+		unsigned int xp_;
 
-		int _hp;
-		std::string _type;
+	public:
+		AMateria(void); // private
+		AMateria(std::string const & type);
+		AMateria(AMateria const & src);
+		AMateria & operator=(AMateria const & src);
+
+		virtual ~AMateria();
+		std::string const & getType() const;
+		unsigned int getXP() const;
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target);
 };
 
 #endif

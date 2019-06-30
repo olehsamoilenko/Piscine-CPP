@@ -1,41 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.cpp                                      :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/28 13:40:28 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/28 13:40:30 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/28 14:34:40 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/28 14:34:42 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PowerFist.hpp"
+#include "Ice.hpp"
 
-PowerFist::PowerFist(void) : AWeapon("Power Fist", 8, 50)
+AMateria* Ice::clone() const
+{
+	return (new Ice());
+}
+
+void Ice::use(ICharacter & target)
+{
+	std::cout << "* shoots an ice bolt at "
+		<< target.getName() << " *" << std::endl;
+	AMateria::use(target);
+}
+
+Ice::Ice(void) : AMateria("ice")
 {
 
 }
 
-void PowerFist::attack(void) const
-{
-	std::cout << "* pschhh... SBAM! *" << std::endl;
-}
-
-PowerFist::~PowerFist(void)
+Ice::~Ice(void)
 {
 
 }
 
-PowerFist & PowerFist::operator=(PowerFist const & src)
+Ice & Ice::operator=(Ice const & src)
 {
 	if (this != &src)
-		AWeapon::operator=(src);
+	{
+		
+	}
 	return (*this);
 }
 
-PowerFist::PowerFist(PowerFist const & src) :
-	AWeapon(src.getName(), src.getAPCost(), src.getDamage())
+Ice::Ice(Ice const & src)
 {
 	*this = src;
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,28 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_HPP
-# define ENEMY_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-# include <iostream>
+# include "AMateria.hpp"
 
-class Enemy
+class Ice : public AMateria
 {
 	public:
-		Enemy(Enemy const &);
-		Enemy & operator=(Enemy const &);
-		Enemy(int hp, std::string const & type);
-		virtual ~Enemy();
+		Ice(void);
+		Ice(Ice const &);
+		Ice & operator=(Ice const &);
+		virtual ~Ice();
 
-		std::string getType() const;
-		int getHP(void) const;
-		virtual void takeDamage(int);
-	
-	private:
-		Enemy(void);
-
-		int _hp;
-		std::string _type;
+		AMateria* clone() const;
+		void use(ICharacter& target);
 };
 
 #endif

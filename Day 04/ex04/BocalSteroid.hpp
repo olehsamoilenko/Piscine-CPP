@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   BocalSteroid.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/28 14:34:57 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/28 14:34:58 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/29 21:49:00 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/29 21:49:01 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_HPP
-# define ENEMY_HPP
+#ifndef BOCALSTEROID_HPP
+# define BOCALSTEROID_HPP
 
-# include <iostream>
+# include "IAsteroid.hpp"
 
-class Enemy
+class BocalSteroid : public IAsteroid
 {
 	public:
-		Enemy(Enemy const &);
-		Enemy & operator=(Enemy const &);
-		Enemy(int hp, std::string const & type);
-		virtual ~Enemy();
+		std::string beMined(DeepCoreMiner *) const;
+		std::string beMined(StripMiner *) const;
+		std::string getName() const;
 
-		std::string getType() const;
-		int getHP(void) const;
-		virtual void takeDamage(int);
-	
-	private:
-		Enemy(void);
-
-		int _hp;
-		std::string _type;
+		BocalSteroid(void);
+		BocalSteroid(BocalSteroid const &);
+		BocalSteroid & operator=(BocalSteroid const &);
+		virtual ~BocalSteroid();
 };
 
 #endif

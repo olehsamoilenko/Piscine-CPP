@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   BulletGun.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/28 14:34:57 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/28 14:34:58 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/28 13:40:34 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/28 13:40:38 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_HPP
-# define ENEMY_HPP
+#ifndef BULLETGUN_HPP
+# define BULLETGUN_HPP
 
-# include <iostream>
+# include "AWeapon.hpp"
 
-class Enemy
+class BulletGun : public AWeapon
 {
 	public:
-		Enemy(Enemy const &);
-		Enemy & operator=(Enemy const &);
-		Enemy(int hp, std::string const & type);
-		virtual ~Enemy();
+		BulletGun(void);
+		BulletGun(BulletGun const &);
+		BulletGun & operator=(BulletGun const &);
+		virtual ~BulletGun(void);
 
-		std::string getType() const;
-		int getHP(void) const;
-		virtual void takeDamage(int);
-	
-	private:
-		Enemy(void);
-
-		int _hp;
-		std::string _type;
+		void attack(void) const;
 };
 
 #endif

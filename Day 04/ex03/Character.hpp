@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,28 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_HPP
-# define ENEMY_HPP
+#ifndef Character_HPP
+# define Character_HPP
 
-# include <iostream>
+# include "ICharacter.hpp"
 
-class Enemy
+class Character : public ICharacter
 {
 	public:
-		Enemy(Enemy const &);
-		Enemy & operator=(Enemy const &);
-		Enemy(int hp, std::string const & type);
-		virtual ~Enemy();
+		Character(void);
+		Character(std::string name);
+		Character(Character const &);
+		Character & operator=(Character const &);
+		virtual ~Character();
 
-		std::string getType() const;
-		int getHP(void) const;
-		virtual void takeDamage(int);
-	
+		std::string const & getName() const;
+		void equip(AMateria* m);
+		void unequip(int idx);
+		void use(int idx, ICharacter& target);
+
 	private:
-		Enemy(void);
-
-		int _hp;
-		std::string _type;
+		std::string _name;
+		AMateria * _inventory[4];
 };
 
 #endif

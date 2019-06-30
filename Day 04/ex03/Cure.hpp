@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   Cure.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,28 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_HPP
-# define ENEMY_HPP
+#ifndef Cure_HPP
+# define Cure_HPP
 
-# include <iostream>
+# include "AMateria.hpp"
 
-class Enemy
+class Cure : public AMateria
 {
 	public:
-		Enemy(Enemy const &);
-		Enemy & operator=(Enemy const &);
-		Enemy(int hp, std::string const & type);
-		virtual ~Enemy();
+		Cure(void);
+		Cure(Cure const &);
+		Cure & operator=(Cure const &);
+		virtual ~Cure();
 
-		std::string getType() const;
-		int getHP(void) const;
-		virtual void takeDamage(int);
-	
-	private:
-		Enemy(void);
-
-		int _hp;
-		std::string _type;
+		AMateria* clone() const;
+		void use(ICharacter& target);
 };
 
 #endif

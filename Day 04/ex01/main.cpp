@@ -13,8 +13,10 @@
 #include "Character.hpp"
 #include "PlasmaRifle.hpp"
 #include "PowerFist.hpp"
+#include "BulletGun.hpp"
 #include "RadScorpion.hpp"
 #include "SuperMutant.hpp"
+#include "Beast.hpp"
 
 int main()
 {
@@ -46,10 +48,18 @@ int main()
 	SuperMutant * mutant = new SuperMutant();
 	zaz->attack(mutant);
 	zaz->attack(mutant);
+	std::cout << "-------------------------------------------" << std::endl;
+
+	// new derived classes
+	Beast * beast = new Beast();
+	BulletGun * gun = new BulletGun();
+	zaz->equip(gun);
+	zaz->attack(beast);
 
 	// deleting
 	delete pr;
 	delete pf;
+	delete gun;
 
 	return 0;
 }

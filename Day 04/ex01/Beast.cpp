@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.cpp                                      :+:      :+:    :+:   */
+/*   Beast.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/28 13:40:28 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/28 13:40:30 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/28 14:34:40 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/28 14:34:42 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PowerFist.hpp"
+#include "Beast.hpp"
 
-PowerFist::PowerFist(void) : AWeapon("Power Fist", 8, 50)
+Beast::Beast(void) : Enemy(100, "Beast")
 {
-
+	std::cout << "I am beast . Prepare to die !" << std::endl;
 }
 
-void PowerFist::attack(void) const
+Beast::~Beast(void)
 {
-	std::cout << "* pschhh... SBAM! *" << std::endl;
+	std::cout << "Noooooo !" << std::endl;
 }
 
-PowerFist::~PowerFist(void)
-{
-
-}
-
-PowerFist & PowerFist::operator=(PowerFist const & src)
+Beast & Beast::operator=(Beast const & src)
 {
 	if (this != &src)
-		AWeapon::operator=(src);
+		Enemy::operator=(src);
 	return (*this);
 }
 
-PowerFist::PowerFist(PowerFist const & src) :
-	AWeapon(src.getName(), src.getAPCost(), src.getDamage())
+Beast::Beast(Beast const & src) :
+	Enemy(src.getHP(), src.getType())
 {
 	*this = src;
 }

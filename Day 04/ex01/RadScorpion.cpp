@@ -25,14 +25,12 @@ RadScorpion::~RadScorpion(void)
 RadScorpion & RadScorpion::operator=(RadScorpion const & src)
 {
 	if (this != &src)
-	{
-		_hp = src._hp;
-		_type = src._type;
-	}
+		Enemy::operator=(src);
 	return (*this);
 }
 
-RadScorpion::RadScorpion(RadScorpion const & src)
+RadScorpion::RadScorpion(RadScorpion const & src) :
+	Enemy(src.getHP(), src.getType())
 {
 	*this = src;
 }

@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   DeepCoreMiner.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/28 14:34:57 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/28 14:34:58 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/29 21:49:00 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/29 21:49:01 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_HPP
-# define ENEMY_HPP
+#ifndef DEEPCOREMINER_HPP
+# define DEEPCOREMINER_HPP
 
-# include <iostream>
+# include "IMiningLaser.hpp"
 
-class Enemy
+class IMiningLaser;
+
+class DeepCoreMiner : public IMiningLaser
 {
 	public:
-		Enemy(Enemy const &);
-		Enemy & operator=(Enemy const &);
-		Enemy(int hp, std::string const & type);
-		virtual ~Enemy();
+		void mine(IAsteroid * ast);
 
-		std::string getType() const;
-		int getHP(void) const;
-		virtual void takeDamage(int);
-	
-	private:
-		Enemy(void);
-
-		int _hp;
-		std::string _type;
+		DeepCoreMiner(void);
+		DeepCoreMiner(DeepCoreMiner const &);
+		DeepCoreMiner & operator=(DeepCoreMiner const &);
+		virtual ~DeepCoreMiner();
 };
 
 #endif

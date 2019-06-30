@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   TacticalMarine.cpp                                 :+:      :+:    :+:   */
+/*   AssaultTerminator.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,45 +10,45 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "TacticalMarine.hpp"
+#include "AssaultTerminator.hpp"
 #include <iostream>
 
-TacticalMarine * TacticalMarine::clone(void) const
+AssaultTerminator * AssaultTerminator::clone(void) const
 {
-	return (new TacticalMarine(*this));
+	return (new AssaultTerminator(*this));
 }
 
-void TacticalMarine::battleCry() const
+void AssaultTerminator::battleCry() const
 {
-	std::cout << "For the holy PLOT !" << std::endl;
+	std::cout << "This code is unclean. PURIFY IT !" << std::endl;
 }
 
-void TacticalMarine::rangedAttack() const
+void AssaultTerminator::rangedAttack() const
 {
-	std::cout << "* attacks with bolter *" << std::endl;
+	std::cout << "* does nothing *" << std::endl;
 }
 
-void TacticalMarine::meleeAttack() const
+void AssaultTerminator::meleeAttack() const
 {
-	std::cout << "* attacks with chainsword *" << std::endl;
+	std::cout << "* attacks with chainfists *" << std::endl;
 }
 
-TacticalMarine::TacticalMarine(void)
+AssaultTerminator::AssaultTerminator(void)
 {
-	std::cout << "Tactical Marine ready for battle" << std::endl;
+	std::cout << "* teleports from space *" << std::endl;
 }
 
-TacticalMarine::~TacticalMarine(void)
+AssaultTerminator::~AssaultTerminator(void)
 {
-	std::cout << "Aaargh ..." << std::endl;
+	std::cout << "I’ll be back ..." << std::endl;
 }
 
-TacticalMarine & TacticalMarine::operator=(TacticalMarine const &)
+AssaultTerminator & AssaultTerminator::operator=(AssaultTerminator const &)
 {
 	return (*this);
 }
 
-TacticalMarine::TacticalMarine(TacticalMarine const & src)
+AssaultTerminator::AssaultTerminator(AssaultTerminator const & src)
 {
 	*this = src;
 }

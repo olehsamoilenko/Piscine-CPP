@@ -14,6 +14,7 @@
 # define SQUAD_HPP
 
 # include "ISquad.hpp"
+# include <iostream>
 
 class Squad : public ISquad
 {
@@ -22,6 +23,10 @@ class Squad : public ISquad
 		Squad(Squad const & src);
 		Squad & operator=(Squad const & src);
 		~Squad(void);
+
+		int getCount() const;
+		ISpaceMarine* getUnit(int) const;
+		int push(ISpaceMarine*);
 
 	private:
 		int _n;

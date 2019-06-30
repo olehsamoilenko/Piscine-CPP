@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   IAsteroid.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/28 14:34:57 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/28 14:34:58 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/29 21:45:38 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/29 21:45:39 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_HPP
-# define ENEMY_HPP
+#ifndef IASTEROID_HPP
+# define IASTEROID_HPP
 
 # include <iostream>
 
-class Enemy
+class StripMiner;
+class DeepCoreMiner;
+
+class IAsteroid
 {
 	public:
-		Enemy(Enemy const &);
-		Enemy & operator=(Enemy const &);
-		Enemy(int hp, std::string const & type);
-		virtual ~Enemy();
-
-		std::string getType() const;
-		int getHP(void) const;
-		virtual void takeDamage(int);
-	
-	private:
-		Enemy(void);
-
-		int _hp;
-		std::string _type;
+		virtual ~IAsteroid() {}
+		virtual std::string beMined(StripMiner *) const = 0;
+		virtual std::string beMined(DeepCoreMiner *) const = 0;
+		virtual std::string getName() const = 0;
 };
 
 #endif

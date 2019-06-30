@@ -10,17 +10,18 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	sorcerer
+NAME =	mining
 CC =	clang++
 CFLAGS = -Wall -Werror -Wextra
-LIST =	Sorcerer \
-		Victim \
-		Peon \
-		Rose
-CPP =	$(LIST) \
-		main
-HPP =	$(addsuffix .hpp, $(LIST))
-OBJ =	$(addsuffix .o, $(CPP))
+CLASS =	MiningBarge \
+		StripMiner \
+		DeepCoreMiner \
+		AsteroBocal \
+		BocalSteroid
+IFACE =	IAsteroid \
+		IMiningLaser
+HPP =	$(addsuffix .hpp, $(CLASS) $(IFACE))
+OBJ =	$(addsuffix .o, $(CLASS) main)
 
 all: $(NAME)
 

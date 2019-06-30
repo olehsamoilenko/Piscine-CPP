@@ -1,41 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.cpp                                      :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/28 13:40:28 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/28 13:40:30 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/28 14:34:40 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/28 14:34:42 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PowerFist.hpp"
+#include "AMateria.hpp"
 
-PowerFist::PowerFist(void) : AWeapon("Power Fist", 8, 50)
+AMateria::AMateria(std::string const & type)
+{
+	type_ = type;
+	xp_ = 0;
+}
+
+void AMateria::use(ICharacter & target)
+{
+	xp_ += 10; // target ??
+	std::cout << target.getName() << " currect xp: " << xp_ << std::endl;
+}
+
+std::string const & AMateria::getType() const
+{
+	return (type_);
+}
+
+AMateria::AMateria(void)
+{
+	
+}
+
+AMateria::~AMateria(void)
 {
 
 }
 
-void PowerFist::attack(void) const
-{
-	std::cout << "* pschhh... SBAM! *" << std::endl;
-}
-
-PowerFist::~PowerFist(void)
-{
-
-}
-
-PowerFist & PowerFist::operator=(PowerFist const & src)
+AMateria & AMateria::operator=(AMateria const & src)
 {
 	if (this != &src)
-		AWeapon::operator=(src);
+	{
+		xp_ = src.xp_;
+	}
 	return (*this);
 }
 
-PowerFist::PowerFist(PowerFist const & src) :
-	AWeapon(src.getName(), src.getAPCost(), src.getDamage())
+AMateria::AMateria(AMateria const & src)
 {
 	*this = src;
 }

@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   MiningBarge.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/28 14:34:57 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/28 14:34:58 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/29 21:49:00 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/29 21:49:01 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_HPP
-# define ENEMY_HPP
+#ifndef MININGBARGE_HPP
+# define MININGBARGE_HPP
 
-# include <iostream>
+# include "IMiningLaser.hpp"
 
-class Enemy
+class MiningBarge
 {
 	public:
-		Enemy(Enemy const &);
-		Enemy & operator=(Enemy const &);
-		Enemy(int hp, std::string const & type);
-		virtual ~Enemy();
+		void equip(IMiningLaser*);
+		void mine(IAsteroid*) const;
 
-		std::string getType() const;
-		int getHP(void) const;
-		virtual void takeDamage(int);
-	
+		MiningBarge(void);
+		MiningBarge(MiningBarge const &);
+		MiningBarge & operator=(MiningBarge const &);
+		virtual ~MiningBarge();
+
 	private:
-		Enemy(void);
-
-		int _hp;
-		std::string _type;
+		IMiningLaser * _laser[4];
 };
 
 #endif

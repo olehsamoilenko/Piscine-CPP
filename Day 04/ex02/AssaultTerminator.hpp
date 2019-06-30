@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   TacticalMarine.hpp                                 :+:      :+:    :+:   */
+/*   AssaultTerminator.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,20 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TACTICALMARINE_HPP
-# define TACTICALMARINE_HPP
+#ifndef ASSAULTTERMINATOR_HPP
+# define ASSAULTTERMINATOR_HPP
 
 # include "ISpaceMarine.hpp"
 
-class TacticalMarine : public ISpaceMarine
+class AssaultTerminator : public ISpaceMarine
 {
 	public:
-		TacticalMarine(void);
-		TacticalMarine(TacticalMarine const &);
-		TacticalMarine & operator=(TacticalMarine const &);
-		virtual ~TacticalMarine(void);
+		AssaultTerminator(void);
+		AssaultTerminator(AssaultTerminator const &);
+		AssaultTerminator & operator=(AssaultTerminator const &);
+		virtual ~AssaultTerminator(void);
 
-		TacticalMarine * clone(void) const;
+		AssaultTerminator * clone(void) const;
 		void battleCry() const;
 		void rangedAttack() const;
 		void meleeAttack() const;

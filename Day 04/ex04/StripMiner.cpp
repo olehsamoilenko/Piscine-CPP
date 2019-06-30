@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.cpp                                      :+:      :+:    :+:   */
+/*   StripMiner.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/28 13:40:28 by osamoile          #+#    #+#             */
-/*   Updated: 2019/06/28 13:40:30 by osamoile         ###   ########.fr       */
+/*   Created: 2019/06/29 21:48:55 by osamoile          #+#    #+#             */
+/*   Updated: 2019/06/29 21:48:57 by osamoile         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PowerFist.hpp"
+#include "StripMiner.hpp"
 
-PowerFist::PowerFist(void) : AWeapon("Power Fist", 8, 50)
+void StripMiner::mine(IAsteroid * ast)
+{
+	std::cout << "* strip mining ... got " <<
+		ast->beMined(this) << " ! *" << std::endl;
+}
+
+StripMiner::StripMiner(void)
 {
 
 }
 
-void PowerFist::attack(void) const
-{
-	std::cout << "* pschhh... SBAM! *" << std::endl;
-}
-
-PowerFist::~PowerFist(void)
+StripMiner::~StripMiner(void)
 {
 
 }
 
-PowerFist & PowerFist::operator=(PowerFist const & src)
+StripMiner & StripMiner::operator=(StripMiner const &)
 {
-	if (this != &src)
-		AWeapon::operator=(src);
 	return (*this);
 }
 
-PowerFist::PowerFist(PowerFist const & src) :
-	AWeapon(src.getName(), src.getAPCost(), src.getDamage())
+StripMiner::StripMiner(StripMiner const & src)
 {
 	*this = src;
 }
+

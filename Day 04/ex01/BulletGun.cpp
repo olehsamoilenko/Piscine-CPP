@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.cpp                                      :+:      :+:    :+:   */
+/*   BulletGun.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osamoile <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,31 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PowerFist.hpp"
+#include "BulletGun.hpp"
 
-PowerFist::PowerFist(void) : AWeapon("Power Fist", 8, 50)
+BulletGun::BulletGun(void) : AWeapon("Bullet Gun", 20, 100)
 {
 
 }
 
-void PowerFist::attack(void) const
+void BulletGun::attack(void) const
 {
 	std::cout << "* pschhh... SBAM! *" << std::endl;
 }
 
-PowerFist::~PowerFist(void)
+BulletGun::~BulletGun(void)
 {
 
 }
 
-PowerFist & PowerFist::operator=(PowerFist const & src)
+BulletGun & BulletGun::operator=(BulletGun const & src)
 {
 	if (this != &src)
 		AWeapon::operator=(src);
 	return (*this);
 }
 
-PowerFist::PowerFist(PowerFist const & src) :
+BulletGun::BulletGun(BulletGun const & src) :
 	AWeapon(src.getName(), src.getAPCost(), src.getDamage())
 {
 	*this = src;

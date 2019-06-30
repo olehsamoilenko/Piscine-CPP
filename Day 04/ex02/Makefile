@@ -13,14 +13,13 @@
 NAME =	squad
 CC =	clang++
 CFLAGS = -Wall -Werror -Wextra
-LIST =	ISquad \
-		ISpaceMarine \
-		Squad \
-		TacticalMarine
-CPP =	$(LIST) \
-		main
-HPP =	$(addsuffix .hpp, $(LIST))
-OBJ =	$(addsuffix .o, $(CPP))
+CLASS =	Squad \
+		TacticalMarine \
+		AssaultTerminator
+IFACE =	ISquad \
+		ISpaceMarine
+HPP =	$(addsuffix .hpp, $(CLASS) $(IFACE))
+OBJ =	$(addsuffix .o, $(CLASS) main)
 
 all: $(NAME)
 
