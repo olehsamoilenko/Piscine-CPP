@@ -2,6 +2,10 @@
 *.vscode
 *.DS_Store*
 
+# Delete
+Base*
+# Delete
+
 # Day 00
 Day 00/ex00/megaphone
 Day 00/ex01/PhoneBook
@@ -38,4 +42,8 @@ Day 04/ex00/sorcerer
 Day 04/ex01/weapon
 Day 04/ex02/squad
 Day 04/ex03/materia
-Day 04/ex02/mining
+Day 04/ex04/mining
+
+# Day 05
+Day 05/ex00/bureaucrat
+Day 05/ex01/bureaucrat
