@@ -10,56 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int		main(void)
 {
-	/* constructors ko */
-	try {
-		Form f1("First Intership", 1, 50);
-		std::cout << f1;
-	}
-	catch (std::exception & e) {
-		std::cout << e.what() << std::endl;
-	}
+	Bureaucrat high("High", 1);
+	Bureaucrat low("Low", 150);
 
-	try {
-		Form f("First Intership", 0, 50);
-	}
-	catch (std::exception & e) {
-		std::cout << e.what() << std::endl;
-	}
+	/* ShrubberyCreationForm */
+	ShrubberyCreationForm scf("home");
+	high.executeForm(scf);
+	high.signForm(scf);
+	high.executeForm(scf);
+	low.executeForm(scf);
+	
 
-	try {
-		Form f("First Intership", 151, 50);
-	}
-	catch (std::exception & e) {
-		std::cout << e.what() << std::endl;
-	}
-
-	try {
-		Form f("First Intership", 50, 0);
-	}
-	catch (std::exception & e) {
-		std::cout << e.what() << std::endl;
-	}
-
-	try {
-		Form f("First Intership", 50, 151);
-	}
-	catch (std::exception & e) {
-		std::cout << e.what() << std::endl;
-	}
+	/* ShrubberyCreationForm */
+	RobotomyRequestForm rrf("factory");
+	high.executeForm(rrf);
+	high.signForm(rrf);
+	for (int i = 0; i < 10; i++)
+		high.executeForm(rrf);
+	low.executeForm(rrf);
 	std::cout << std::string(70, '-') << std::endl;
 
-	/* low grade for signing */
-	Form f("First Intership", 50, 70);
-	Bureaucrat b1("Oleh", 40);
-	Bureaucrat b2("Vadim", 60);
-	b1.signForm(f);
-	b2.signForm(f);
-
+	/* PresidentialPardonForm */
+	PresidentialPardonForm ppf("church");
+	high.executeForm(ppf);
+	high.signForm(ppf);
+	high.executeForm(ppf);
+	low.executeForm(ppf);
 
 	return (0);
 }

@@ -10,56 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Intern.hpp"
 #include "Form.hpp"
-#include "Bureaucrat.hpp"
 
 int		main(void)
 {
-	/* constructors ko */
-	try {
-		Form f1("First Intership", 1, 50);
-		std::cout << f1;
+	Intern someRandomIntern;
+	try
+	{
+		Form * f1 = someRandomIntern.makeForm("robotomy request", "Bender");
+		Form * f2 = someRandomIntern.makeForm("shrubbery creation", "Dender");
+		Form * f3 = someRandomIntern.makeForm("presidential pardon", "Fender");
+		Form * f4 = someRandomIntern.makeForm("cool form", "Fender");
+		delete f1;
+		delete f2;
+		delete f3;
+		delete f4;
 	}
-	catch (std::exception & e) {
+	catch(std::exception & e)
+	{
 		std::cout << e.what() << std::endl;
 	}
-
-	try {
-		Form f("First Intership", 0, 50);
-	}
-	catch (std::exception & e) {
-		std::cout << e.what() << std::endl;
-	}
-
-	try {
-		Form f("First Intership", 151, 50);
-	}
-	catch (std::exception & e) {
-		std::cout << e.what() << std::endl;
-	}
-
-	try {
-		Form f("First Intership", 50, 0);
-	}
-	catch (std::exception & e) {
-		std::cout << e.what() << std::endl;
-	}
-
-	try {
-		Form f("First Intership", 50, 151);
-	}
-	catch (std::exception & e) {
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::string(70, '-') << std::endl;
-
-	/* low grade for signing */
-	Form f("First Intership", 50, 70);
-	Bureaucrat b1("Oleh", 40);
-	Bureaucrat b2("Vadim", 60);
-	b1.signForm(f);
-	b2.signForm(f);
-
-
 	return (0);
 }

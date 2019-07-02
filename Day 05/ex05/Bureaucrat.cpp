@@ -12,19 +12,32 @@
 
 #include "Bureaucrat.hpp"
 
+void Bureaucrat::executeForm(Form const & f) const
+{
+	f.execute(*this);
+	std::cout << "Bureaucrat " << _name << " (Grade " << _grade << ") executes a "
+		<< f.getName() << " (s.grade " << f.getGradeRequiredSign() <<
+		", ex.grade " << f.getGradeRequiredExec() << ")" << std::endl;
+	std::cout << "     targeted on " << f.getTarget() << " (";
+	if (f.getSigned())
+		std::cout << "Signed";
+	else
+		std::cout << "Unigned";
+	std::cout << ")" << std::endl;
+}
+
 void Bureaucrat::signForm(Form & f) const
 {
-	try
-	{
-		f.beSigned(*this);
-		std::cout << "<" << _name << "> signs <"
-			<< f.getName() << ">." << std::endl;
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "<" << _name << "> cannot sign <" << f.getName()
-			<< "> because <" << e.what() << ">." << std::endl;
-	}
+	f.beSigned(*this);
+	std::cout << "Bureaucrat " << _name << " (Grade " << _grade << ") signs a "
+		<< f.getName() << " (s.grade " << f.getGradeRequiredSign() <<
+		", ex.grade " << f.getGradeRequiredExec() << ")" << std::endl;
+	std::cout << "     targeted on " << f.getTarget() << " (";
+	if (f.getSigned())
+		std::cout << "Signed";
+	else
+		std::cout << "Unigned";
+	std::cout << ")" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade)

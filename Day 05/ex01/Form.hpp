@@ -28,7 +28,6 @@ class Form
 		bool getSigned(void) const;
 		int getGradeRequiredSign(void) const;
 		int getGradeRequiredExec(void) const;
-
 		void beSigned(Bureaucrat const & b);
 
 	private:
@@ -38,25 +37,33 @@ class Form
 		const int _gradeRequiredSign;
 		const int _gradeRequiredExec;
 
-	class GradeTooLowException : public std::exception
-	{
-		public:
-			GradeTooLowException(void);
-			GradeTooLowException(GradeTooLowException const &);
-			GradeTooLowException & operator=(GradeTooLowException const &);
-			virtual ~GradeTooLowException(void) throw();
-			virtual const char * what() const throw();
-	};
-	
-	class GradeTooHighException : public std::exception
-	{
-		public:
-			GradeTooHighException(void);
-			GradeTooHighException(GradeTooHighException const &);
-			GradeTooHighException & operator=(GradeTooHighException const &);
-			virtual ~GradeTooHighException(void) throw();
-			virtual const char * what() const throw();
-	};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				GradeTooLowException(void);
+				GradeTooLowException(std::string msg);
+				GradeTooLowException(GradeTooLowException const &);
+				GradeTooLowException & operator=(GradeTooLowException const &);
+				virtual ~GradeTooLowException(void) throw();
+				virtual const char * what() const throw();
+
+			private:
+				std::string _msg;
+		};
+		
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				GradeTooHighException(void);
+				GradeTooHighException(std::string msg);
+				GradeTooHighException(GradeTooHighException const &);
+				GradeTooHighException & operator=(GradeTooHighException const &);
+				virtual ~GradeTooHighException(void) throw();
+				virtual const char * what() const throw();
+
+			private:
+				std::string _msg;
+		};
 };
 
 std::ostream & operator<<(std::ostream & o, Form const & src);

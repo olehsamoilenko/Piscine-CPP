@@ -13,6 +13,30 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
+void Form::execute(Bureaucrat const & executor) const
+{
+	if (!_signed)
+		throw (Form::FormNotSignedException(
+			"impossible to execute not signed form"));
+	if (executor.getGrade() > getGradeRequiredExec())
+		throw (Form::GradeTooLowException(
+			"bureaucrat's grade is too low for execution"));
+}
+
+Form::Form(std::string name, int gradeSign, int gradeExec, std::string target)
+	: _name(name), _signed(false), _gradeRequiredSign(gradeSign),
+	_gradeRequiredExec(gradeExec), _target(target)
+{
+	if (_gradeRequiredSign < 1)
+		throw (Form::GradeTooHighException("grade for signing can't be higher than 1"));
+	if (_gradeRequiredExec < 1)
+		throw (Form::GradeTooHighException("grade for executing can't be higher than 1"));
+	if (_gradeRequiredSign > 150)
+		throw (Form::GradeTooLowException("grade for signing can't be lower than 150"));
+	if (_gradeRequiredExec > 150)
+		throw (Form::GradeTooLowException("grade for executing can't be lower than 150"));
+}
+
 Form::Form(std::string name, int gradeSign, int gradeExec)
 	: _name(name), _signed(false),
 	_gradeRequiredSign(gradeSign), _gradeRequiredExec(gradeExec)
@@ -33,6 +57,11 @@ void Form::beSigned(Bureaucrat const & b)
 		_signed = true;
 	else
 		throw (Form::GradeTooLowException("grade of bureaucrat is too low"));
+}
+
+std::string Form::getTarget(void) const
+{
+	return (_target);
 }
 
 std::string Form::getName(void) const
@@ -83,6 +112,7 @@ Form & Form::operator=(Form const & src)
 	if (this != &src)
 	{
 		_signed = src._signed;
+		_target = src._target;
 	}
 	return (*this);
 }
@@ -165,6 +195,45 @@ Form::GradeTooHighException & Form::GradeTooHighException
 }
 
 Form::GradeTooHighException::~GradeTooHighException(void) throw()
+{
+	
+}
+
+Form::FormNotSignedException::FormNotSignedException(void)
+	: _msg("Form::FormNotSignedException")
+{
+
+}
+
+Form::FormNotSignedException::FormNotSignedException(std::string msg)
+	: _msg(msg)
+{
+	
+}
+
+const char * Form::FormNotSignedException::what() const throw()
+{
+	return (_msg.c_str());
+}
+
+
+Form::FormNotSignedException::FormNotSignedException(
+	Form::FormNotSignedException const & src)
+{
+	*this = src;
+}
+
+Form::FormNotSignedException & Form::FormNotSignedException
+	::operator=(Form::FormNotSignedException const & src)
+{
+	if (this != &src)
+	{
+		_msg = src._msg;
+	}
+	return (*this);
+}
+
+Form::FormNotSignedException::~FormNotSignedException(void) throw()
 {
 	
 }

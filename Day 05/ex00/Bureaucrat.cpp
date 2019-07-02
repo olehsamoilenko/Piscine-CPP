@@ -16,23 +16,28 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 	: _name(name)
 {
 	if (grade < 1)
-		throw (Bureaucrat::GradeTooHighException());
+		throw (Bureaucrat::GradeTooHighException(
+			"grade can't be higher than 1"));
 	if (grade > 150)
-		throw (Bureaucrat::GradeTooLowException());
+		throw (Bureaucrat::GradeTooLowException(
+			"grade can't be lower than 150"));
 	_grade = grade;
 }
 
 void Bureaucrat::incrementGrade(void)
 {
 	if (_grade == 1)
-		throw (Bureaucrat::GradeTooHighException());
+		throw (Bureaucrat::GradeTooHighException(
+			"can't increment the highest grade"));
 	_grade -= 1;
 }
 
 void Bureaucrat::decrementGrade(void)
 {
 	if (_grade == 150)
-		throw (Bureaucrat::GradeTooLowException());
+		throw (Bureaucrat::GradeTooLowException(
+			"can't decrement the lowest grade"
+		));
 	_grade += 1;
 }
 
@@ -46,16 +51,11 @@ int Bureaucrat::getGrade(void) const
 	return (_grade);
 }
 
-const char * Bureaucrat::GradeTooLowException::what() const throw()
+std::ostream & operator<<(std::ostream & o, Bureaucrat const & src)
 {
-	return ("GradeTooLowException: "
-		"grade can't be greater than 150");
-}
-
-const char * Bureaucrat::GradeTooHighException::what() const throw()
-{
-	return ("GradeTooHighException: "
-		"grade can't be less than 1");
+	o << "<" << src.getName() << ">, bureaucrat grade <"
+		<< src.getGrade() << ">." << std::endl;
+	return (o);
 }
 
 Bureaucrat::Bureaucrat(void)
@@ -83,16 +83,21 @@ Bureaucrat::~Bureaucrat(void)
 	
 }
 
-std::ostream & operator<<(std::ostream & o, Bureaucrat const & src)
+Bureaucrat::GradeTooLowException::GradeTooLowException(void)
+	: _msg("Bureaucrat::GradeTooLowException")
 {
-	o << "<" << src.getName() << ">, bureaucrat grade <"
-		<< src.getGrade() << ">." << std::endl;
-	return (o);
+
 }
 
-Bureaucrat::GradeTooLowException::GradeTooLowException(void)
+Bureaucrat::GradeTooLowException::GradeTooLowException(std::string msg)
+	: _msg(msg)
 {
+	
+}
 
+const char * Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return (_msg.c_str());
 }
 
 Bureaucrat::GradeTooLowException::GradeTooLowException(
@@ -106,7 +111,7 @@ Bureaucrat::GradeTooLowException & Bureaucrat::GradeTooLowException
 {
 	if (this != &src)
 	{
-
+		_msg = src._msg;
 	}
 	return (*this);
 }
@@ -117,9 +122,22 @@ Bureaucrat::GradeTooLowException::~GradeTooLowException(void) throw()
 }
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(void)
+	: _msg("Bureaucrat::GradeTooHighException")
 {
 
 }
+
+Bureaucrat::GradeTooHighException::GradeTooHighException(std::string msg)
+	: _msg(msg)
+{
+	
+}
+
+const char * Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return (_msg.c_str());
+}
+
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(
 	Bureaucrat::GradeTooHighException const & src)
@@ -132,7 +150,7 @@ Bureaucrat::GradeTooHighException & Bureaucrat::GradeTooHighException
 {
 	if (this != &src)
 	{
-
+		_msg = src._msg;
 	}
 	return (*this);
 }

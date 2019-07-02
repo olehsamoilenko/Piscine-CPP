@@ -15,6 +15,8 @@
 
 #include <iostream>
 
+#include "Form.hpp"
+
 class Bureaucrat
 {
 	public:
@@ -26,12 +28,9 @@ class Bureaucrat
 		int getGrade(void) const;
 		void incrementGrade(void);
 		void decrementGrade(void);
-
-	private:
-		Bureaucrat(void);
-		const std::string _name;
-		int _grade;
-
+		void signForm(Form & f) const;
+		void executeForm(Form const & form) const;
+		
 		class GradeTooLowException : public std::exception
 		{
 			public:
@@ -59,6 +58,12 @@ class Bureaucrat
 			private:
 				std::string _msg;
 		};
+
+	private:
+		Bureaucrat(void);
+		const std::string _name;
+		int _grade;
+
 };
 
 std::ostream & operator<<(std::ostream &, Bureaucrat const &);

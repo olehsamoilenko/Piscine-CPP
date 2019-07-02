@@ -14,8 +14,7 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
-
-class Form;
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -28,32 +27,40 @@ class Bureaucrat
 		int getGrade(void) const;
 		void incrementGrade(void);
 		void decrementGrade(void);
-		void signForm(Form const & f) const;
+		void signForm(Form & f) const;
+		
+	private:
+		Bureaucrat(void);
+		const std::string _name;
+		int _grade;
 
 		class GradeTooLowException : public std::exception
 		{
 			public:
 				GradeTooLowException(void);
+				GradeTooLowException(std::string msg);
 				GradeTooLowException(GradeTooLowException const &);
 				GradeTooLowException & operator=(GradeTooLowException const &);
 				virtual ~GradeTooLowException(void) throw();
 				virtual const char * what() const throw();
+
+			private:
+				std::string _msg;
 		};
 		
 		class GradeTooHighException : public std::exception
 		{
 			public:
 				GradeTooHighException(void);
+				GradeTooHighException(std::string msg);
 				GradeTooHighException(GradeTooHighException const &);
 				GradeTooHighException & operator=(GradeTooHighException const &);
 				virtual ~GradeTooHighException(void) throw();
 				virtual const char * what() const throw();
-		};
 
-	private:
-		Bureaucrat(void);
-		const std::string _name;
-		int _grade;
+			private:
+				std::string _msg;
+		};
 };
 
 std::ostream & operator<<(std::ostream &, Bureaucrat const &);
