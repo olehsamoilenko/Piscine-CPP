@@ -34,6 +34,7 @@ int		main()
 	Bureaucrat sign = Bureaucrat("Bobby Bobson", 73);
 	OfficeBlock ob;
 
+	/* members not set */
 	funcTry(ob);
 	ob.setIntern(idiotOne);
 	funcTry(ob);
@@ -42,6 +43,7 @@ int		main()
 	ob.setExecutor(exec);
 	funcTry(ob);
 
+	/* double set */
 	try { ob.setIntern(idiotOne); }
 	catch (std::exception & e) { std::cout << "! Exception: " << e.what() << " !" << std::endl; }
 	std::cout << std::string(70, '-') << std::endl;
@@ -51,9 +53,12 @@ int		main()
 	try { ob.setExecutor(exec); }
 	catch (std::exception & e) { std::cout << "! Exception: " << e.what() << " !" << std::endl; }
 
+	/* not enough grade */
 	sign.incrementGrade();
 	funcTry(ob);
 	exec.incrementGrade();
+
+	/* success */
 	funcTry(ob);
 
 	return (0);

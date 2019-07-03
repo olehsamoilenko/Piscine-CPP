@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Intern.hpp"
 #include "OfficeBlock.hpp"
+#include "Bureaucrat.hpp"
 
 void OfficeBlock::doBureaucracy(std::string formName, std::string target)
 {

@@ -15,7 +15,9 @@
 
 #include <iostream>
 
-#include "Form.hpp"
+class Form;
+class GradeTooLowException;
+class GradeTooHighException;
 
 class Bureaucrat
 {

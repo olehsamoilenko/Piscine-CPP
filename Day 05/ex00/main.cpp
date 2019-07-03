@@ -14,6 +14,7 @@
 
 int		main(void)
 {
+	/* low grade */
 	try {
 		Bureaucrat b("Oleh", 0);
 	}
@@ -21,6 +22,7 @@ int		main(void)
 		std::cerr << e.what() << std::endl;
 	}
 
+	/* high grade */
 	try {
 		Bureaucrat b("Oleh", 151);
 	}
@@ -28,6 +30,7 @@ int		main(void)
 		std::cerr << e.what() << std::endl;
 	}
 
+	/* incorrect increment */
 	try {
 		Bureaucrat b("Oleh", 1);
 		std::cerr << b;
@@ -37,6 +40,7 @@ int		main(void)
 		std::cerr << e.what() << std::endl;
 	}
 
+	/* incorrect decrement */
 	try {
 		Bureaucrat b("Oleh", 150);
 		std::cerr << b;

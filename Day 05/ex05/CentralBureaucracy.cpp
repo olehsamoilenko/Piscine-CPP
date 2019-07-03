@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Intern.hpp"
+#include "OfficeBlock.hpp"
+#include "Bureaucrat.hpp"
 #include "CentralBureaucracy.hpp"
 
 void CentralBureaucracy::doBureuacracy(void)

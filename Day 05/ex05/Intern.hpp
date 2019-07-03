@@ -16,9 +16,6 @@
 # include <iostream>
 
 class Form;
-class ShrubberyCreationForm;
-class PresidentialPardonForm;
-class RobotomyRequestForm;
 
 class Intern
 {

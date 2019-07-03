@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include "PresidentialPardonForm.hpp"
-#include <fstream>
+#include "Bureaucrat.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
 	: Form("PresidentialPardonForm", 25, 5, target)

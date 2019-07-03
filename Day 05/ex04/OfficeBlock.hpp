@@ -14,8 +14,9 @@
 # define OfficeBlock_HPP
 
 # include <iostream>
-# include "Intern.hpp"
-# include "Bureaucrat.hpp"
+
+class Intern;
+class Bureaucrat;
 
 class OfficeBlock
 {

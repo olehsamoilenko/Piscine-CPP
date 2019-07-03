@@ -13,7 +13,7 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
 
-#include "Form.hpp"
+class Form;
 
 class ShrubberyCreationForm : public Form
 {

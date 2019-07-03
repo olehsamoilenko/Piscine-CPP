@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Bureaucrat.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
 	: Form("RobotomyRequestForm", 72, 45, target)

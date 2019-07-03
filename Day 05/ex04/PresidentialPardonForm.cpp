@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include "PresidentialPardonForm.hpp"
-#include <fstream>
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
 	: Form("Presidential Pardon Form", 25, 5, target)

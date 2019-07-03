@@ -13,7 +13,10 @@
 #ifndef CENTRALBUREAUCRACY_HPP
 # define CENTRALBUREAUCRACY_HPP
 
-#include "OfficeBlock.hpp"
+#include <iostream>
+
+class OfficeBlock;
+class Bureaucrat;
 
 class CentralBureaucracy
 {

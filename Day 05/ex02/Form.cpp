@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 void Form::execute(Bureaucrat const & executor) const
 {

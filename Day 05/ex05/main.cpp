@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Bureaucrat.hpp"
+#include "OfficeBlock.hpp"
 #include "CentralBureaucracy.hpp"
 
 const std::string names[] = {

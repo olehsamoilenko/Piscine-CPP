@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Bureaucrat.hpp"
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
