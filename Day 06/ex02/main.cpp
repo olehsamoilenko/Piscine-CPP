@@ -77,7 +77,7 @@ int		main(void)
 	identify_from_pointer(base);
 	identify_from_pointer(d);
 	std::cout << std::string(20, '-') << std::endl;
-	
+
 	identify_from_reference(*a);
 	identify_from_reference(*b);
 	identify_from_reference(*c);

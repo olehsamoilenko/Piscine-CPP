@@ -2,6 +2,7 @@
 ex00
 	OK	sto* forbidden (c++11)
 	OK	atof
+	OK	isnan, isinf forbidden (c++11)
 
 ex02
 	OK	bad_cast forbidden (<typeinfo>)

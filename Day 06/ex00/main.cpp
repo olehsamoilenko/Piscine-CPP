@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cmath>
 #include <iomanip>
+#include <sstream>
 
 int		main(int argc, char ** argv)
 {
@@ -24,7 +24,9 @@ int		main(int argc, char ** argv)
 		int i = static_cast<int>(d);
 
 		std::cout << "char: ";
-		if (std::isnan(f))
+		std::stringstream ssChar;
+		int resChar;
+		if (!(ssChar << argv[1] && ssChar >> resChar))
 			std::cout << "impossible";
 		else if (std::isprint(c))
 			std::cout << "'" << c << "'";
@@ -33,25 +35,20 @@ int		main(int argc, char ** argv)
 		std::cout << std::endl;
 
 		std::cout << "int: ";
-		if (std::isnan(d))
-			std::cout << "impossible";
-		else
+		std::stringstream ssInt;
+		int resInt;
+		if (ssInt << argv[1] && ssInt >> resInt)
 			std::cout << i;
+		else
+			std::cout << "impossible";
 		std::cout << std::endl;
 
 		std::cout << "float: ";
-		if (std::isinf(f) && f > 0)
-			std::cout << '+';
 		std::cout << std::fixed << std::setprecision(1) << f << 'f';
 		std::cout << std::endl;
 
 		std::cout << "double: ";
-		if (std::isinf(d) && d > 0)
-			std::cout << '+' << d;
-		else if (std::isinf(d) && d < 0)
-			std::cout << d;
-		else
-			std::cout << d;
+		std::cout << d;
 		std::cout << std::endl;
 	}
 	else
