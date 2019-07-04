@@ -1,0 +1,7 @@
+*** Day 06 ***
+ex00
+	OK	sto* forbidden (c++11)
+	OK	atof
+
+ex02
+	OK	bad_cast forbidden (<typeinfo>)

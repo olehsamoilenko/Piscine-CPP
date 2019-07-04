@@ -37,7 +37,7 @@ void Bureaucrat::signForm(Form & f) const
 	if (f.getSigned())
 		std::cout << "Signed";
 	else
-		std::cout << "Unigned";
+		std::cout << "Unsigned";
 	std::cout << ")" << std::endl;
 }
 

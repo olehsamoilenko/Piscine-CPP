@@ -2,10 +2,6 @@
 *.vscode
 *.DS_Store*
 
-# Delete
-Base*
-# Delete
-
 # Day 00
 Day 00/ex00/megaphone
 Day 00/ex01/PhoneBook
@@ -52,3 +48,8 @@ Day 05/ex02/bureaucrat
 Day 05/ex03/bureaucrat
 Day 05/ex04/bureaucrat
 Day 05/ex05/bureaucrat
+
+# Day 06
+Day 06/ex00/cast
+Day 06/ex01/serialize
+Day 06/ex02/identify

@@ -21,7 +21,7 @@ int		main(void)
 	catch (std::exception & e) {
 		std::cerr << e.what() << std::endl;
 	}
-
+	
 	/* high grade */
 	try {
 		Bureaucrat b("Oleh", 151);

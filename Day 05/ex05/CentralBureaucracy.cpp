@@ -26,10 +26,9 @@ void CentralBureaucracy::doBureuacracy(void)
 		}
 		catch(std::exception & e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cout << "HERE " << e.what() << std::endl;
 		}
 	}
-	
 }
 
 void CentralBureaucracy::queueUp(std::string target)

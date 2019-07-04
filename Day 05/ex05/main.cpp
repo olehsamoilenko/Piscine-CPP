@@ -30,11 +30,12 @@ const std::string names[] = {
 int		main(void)
 {
 	{
+		// srand(clock());
 		CentralBureaucracy cb;
 		/* feed into center */
 		try
 		{
-			for (int i = 0; i < 20; i++)
+			for (int i = 0; i < 10; i++)
 				cb.feed(*(new Bureaucrat(names[rand() % 9], rand() % 150 + 1)));		
 		}
 		catch (CentralBureaucracy::CenterIsFullException & e)
@@ -44,7 +45,7 @@ int		main(void)
 		/* queue targets */
 		try
 		{
-			for (int i = 0; i < 20; i++)
+			for (int i = 0; i < 22; i++)
 				cb.queueUp(names[rand() % 9]);
 		}
 		catch (CentralBureaucracy::QueueFullException & e)
